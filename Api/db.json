@@ -1,0 +1,29 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "userCode": "Sir_Ahmet",
+        "password": "54ahmet49"
+      },
+      {
+        "id": 2,
+        "userCode": "SengulIsa",
+        "password": "123Zxc.:"
+      },
+      {
+        "id": 3,
+        "userCode": "Mehmet_Ulaş",
+        "password": "mht.ulş.45"
+      },
+      {
+        "id": 4,
+        "userCode": "Ömer_Faruk",
+        "password": "ABC123.,"
+      },
+      {
+        "id": 5,
+        "userCode": "Merve_Çelik",
+        "password": "mrv.çlk.12345"
+      }
+    ]
+  }
