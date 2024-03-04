@@ -5,8 +5,9 @@ import '../Styles/LoginPage.css';
 import { Input, Typography,InputAdornment} from '@mui/material';
 import PersonSharpIcon from '@mui/icons-material/PersonSharp';
 import LockIcon from '@mui/icons-material/Lock';
-import {  useNavigate } from 'react-router-dom';
+import {  useNavigate} from 'react-router-dom';
 import axios from 'axios';
+
 
 
 const LoginPage = () => {
@@ -27,7 +28,7 @@ const LoginPage = () => {
      await  response
       .then(result=>{
         result.data.map(user =>{
-           if(user.userCode=== usercode && user.password=== password ) navigate('/Home');
+           if(user.userCode=== usercode && user.password=== password ) navigate('/Home')
            else{
             isValid= false;
             setShowContainer(true);
@@ -71,7 +72,7 @@ const LoginPage = () => {
                 
                 
             </Container>
-            <Container sx={{
+            <Container  sx={{
               width:'60%',
               height:'100vh',
               backgroundColor:'rgb(218, 236, 237)',
@@ -148,5 +149,6 @@ const LoginPage = () => {
    
   )
 }
+
 
 export default LoginPage;

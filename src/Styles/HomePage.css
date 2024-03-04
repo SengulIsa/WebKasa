@@ -1,0 +1,21 @@
+.logoImage{
+    width: 100%;
+    height: 100%;
+    
+}
+.homeTop{
+    background-color: rgb(218, 236, 237);
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    height: 30vh;
+    width: 100%;
+}
+.menuPage{
+    background-color: rgb(218, 236, 237);
+    height:400px;  
+}
+.homeBottom{
+    background-color: rgb(218, 236, 237);
+    height:115px;
+}
