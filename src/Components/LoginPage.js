@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import {useUser} from '../Context/UsersContext'
 import Container from '@mui/material/Container';
 import Logo from '../Images/32-bit.png';
 import '../Styles/LoginPage.css';
@@ -11,15 +12,19 @@ import axios from 'axios';
 
 
 const LoginPage = () => {
-  const [usercode, setUserCode] = useState('');
+  const {usercode, setUsercode,version,setVersion,fetchCaseInfo} = useUser();
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const [valid, setValid] = useState(true);
   const [showContainer, setShowContainer] = useState(true);
+  
  
 
   const navigate = useNavigate();
   const response = axios.get('http://localhost:3001/users')
+ 
+
+ 
 
   const  HandleSubmit= async (e)=>{
    e.preventDefault();
@@ -46,6 +51,7 @@ const LoginPage = () => {
       })
 
   }
+  fetchCaseInfo();
  
   return (
     <>
@@ -66,7 +72,7 @@ const LoginPage = () => {
               }}>
                 <div className='logoDiv'>
                 <img src={Logo} alt='#' className='logoImage'/>
-                <Typography>v.13.78.146</Typography>
+                <Typography>{version}</Typography>
               
                 </div>
                 
@@ -102,7 +108,7 @@ const LoginPage = () => {
                     </Container>
                    
                   )}
-                    <Input  disableUnderline='true'  placeholder='Kullanıcı Kodu' autoComplete='off' onChange={(e)=>setUserCode(e.target.value)} value={usercode} required
+                    <Input  disableUnderline='true'  placeholder='Kullanıcı Kodu' autoComplete='off' onChange={(e)=>setUsercode(e.target.value)} value={usercode} required
                               endAdornment=
                               {
                                 <InputAdornment position="start">
@@ -136,11 +142,7 @@ const LoginPage = () => {
                         textDecoration:'none',
                         paddingLeft:'35px'}}
                       />
-                      
                       <button className='logInButton' >Giriş</button>
-                      
-                      {/* <button onClick={handleNewUSer} className='newUser' >Yeni Kasiyer</button> diğer işlemler kısmına yeni kasiyer kısmı eklenecek */}
-                      
                 </form> 
             </Container>    
       </div>
