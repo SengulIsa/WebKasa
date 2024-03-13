@@ -1,6 +1,6 @@
 import { Container, Typography } from '@mui/material'
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {useUser} from '../Context/UsersContext'
 import Logo from '../Images/32-bit.png';
 import '../Styles/HomePage.css';
@@ -21,6 +21,7 @@ const HomeTop = () => {
          if(user.userCode=== usercode)
          {
           setUsername(user.name);
+          
         }
   })
     })
@@ -30,6 +31,7 @@ const HomeTop = () => {
     const handleClick =()=>{
         console.log('clicked');
     }
+
    takeIdByUserCode();
   return (
     <div className='homeTop'>
