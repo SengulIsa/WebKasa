@@ -11,3 +11,9 @@
     padding: 0px;
     height: 600px;
 }
+.productcard{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px;
+}
