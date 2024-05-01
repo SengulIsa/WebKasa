@@ -1,4 +1,5 @@
 import React from 'react';
+import { useProductCode } from '../Context/ProductContext';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -73,25 +74,27 @@ import turşuluksalatalık from '../Images/Products/WithoutBarcode/TurşulukSala
 import yeşilsoğan from '../Images/Products/WithoutBarcode/YeşilSoğan.jpeg';
 import '../Styles/OrderPage.css';
 
+
 function ProductCard({ name, price ,code,image}) {
+  var {setProductCode,setOldPrice}= useProductCode();
   return (
-    <Grid item xs={12} md={6} lg={4}>
-         <Card sx={{  maxWidth: 345,border:'1px solid gray',borderRadius:'20px',height:'140px',marginTop:'10px'}}>
-      <CardActionArea onClick={()=>{console.log('clicked')}}>
+    <Grid  item xs={12} md={6} lg={4}>
+         <Card onClick={()=>{setProductCode(code);setOldPrice(price)}} sx={{  maxWidth: 345,border:'1px solid gray',borderRadius:'20px',height:'140px',marginTop:'10px'}}>
+      <CardActionArea >
         <CardMedia  sx={{width:'100%',marginTop:'5px',objectFit:'contain'}}
           component="img"
           height="50"
           image={image}
           alt={name}
         />
-        <CardContent>
+        <CardContent >
           <Typography sx={{ fontSize: '11px', fontFamily:'fantasy'}} variant="h6" component="div">
             {name}
           </Typography>
           <Typography sx={{ fontSize: '11px',fontFamily:'fantasy' }} >
             Fiyat: {price}
           </Typography>
-          <Typography sx={{ fontSize: '11px',fontFamily:'fantasy' }} >
+          <Typography  sx={{ fontSize: '11px',fontFamily:'fantasy' }} >
             Kod: {code}
           </Typography>
         </CardContent>
@@ -129,9 +132,9 @@ switch (ctgry) {
   default:
     break;
 }
-
   return (
-    <div className='productcard'>
+    
+       <div className='productcard'>
       <Grid container spacing={2}>
       {names.map((name, index) => (
         <ProductCard 
@@ -140,11 +143,12 @@ switch (ctgry) {
           price={prices[index]} // Fiyatı almak için indeksi kullanın
           image ={Images[index]}
           code={codes[index]} // Kodu almak için indeksi kullanın
-        />
+          />
       ))}
       </Grid>
-     
     </div>
+      
+   
   );
 }
 

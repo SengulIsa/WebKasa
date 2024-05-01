@@ -2,6 +2,7 @@
     flex: 1;
     max-width: calc(100% / 3);
     border: 1px solid gray;
+    background-color: rgb(218, 236, 237);
 }
 .container{
     display: flex;
@@ -17,3 +18,8 @@
     flex-wrap: wrap;
     margin: 10px;
 }
+.MuiButton-root:hover {
+    background-color: inherit !important;
+    color: inherit !important;
+  }
+  

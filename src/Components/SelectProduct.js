@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Input, InputAdornment, Button, Container } from '@mui/material';
+import React, { useState, useEffect} from 'react';
+import { useProductCode } from '../Context/ProductContext';
+import { Input, InputAdornment, Button, Container, IconButton } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import '../Styles/OrderPage.css';
@@ -15,6 +16,7 @@ import barkodsuz from '../Images/Products/WithoutBarcode/Barkodsuz.jpeg';
 import axios from 'axios';
 
 const SelectProduct = () => {
+  const {ProductCode,setProductCode,OldPrice,setProductPrice,}= useProductCode();
   // Kategorileri ve ürünleri kontrol etmek için state'ler tanımla
   const [showCategories, setShowCategories] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -156,12 +158,14 @@ const SelectProduct = () => {
   };
 
   return (
-    <div style={{ backgroundColor: 'rgb(218, 236, 237)' }} className='orderComponent '>
+    <div className='orderComponent '>
       {/* Barkod girişi ve kategori butonları */}
-      <Input className='barcodeInput' sx={{ border: '1px solid black', borderRadius: '20px', backgroundColor: 'white', color: 'black', width: '90%', height: '50px', marginLeft: '10px', marginTop: '10px', fontSize: '20px', paddingLeft: '15px' }} disableUnderline='true' placeholder='Klavyeden Barkod Girişi'
+      <Input className='barcodeInput' onChange={(e)=>{setProductCode(e.target.value)}} sx={{ border: '1px solid black', borderRadius: '20px', backgroundColor: 'white', color: 'black', width: '90%', height: '50px', marginLeft: '10px', marginTop: '10px', fontSize: '20px', paddingLeft: '15px' }} disableUnderline='true' placeholder='Klavyeden Barkod Girişi' value={ProductCode}
         endAdornment={
           <InputAdornment position="start">
-            <CheckCircleIcon sx={{ color: 'black', fontSize: '50px' }} />
+             <IconButton onClick={()=>{setProductPrice(OldPrice)}}>
+            <CheckCircleIcon  sx={{ color: 'black', fontSize: '50px' }} />
+            </IconButton>
           </InputAdornment>
         }></Input>
       <Button sx={{ border: '1px solid gray', borderRadius: '20px', width: '30%', backgroundColor: 'white', color: 'black', marginTop: '10px', marginRight: '5px', marginLeft: '3px' }} onClick={() => { setShowCategories(true) }}>Kategoriler</Button>
