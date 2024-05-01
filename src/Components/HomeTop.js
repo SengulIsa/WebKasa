@@ -1,6 +1,6 @@
 import { Container, Typography } from '@mui/material'
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import {useUser} from '../Context/UsersContext'
 import Logo from '../Images/32-bit.png';
 import '../Styles/HomePage.css';
