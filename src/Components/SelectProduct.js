@@ -16,7 +16,7 @@ import barkodsuz from '../Images/Products/WithoutBarcode/Barkodsuz.jpeg';
 import axios from 'axios';
 
 const SelectProduct = () => {
-  const {ProductCode,setProductCode,OldPrice,setProductPrice,}= useProductCode();
+  const {ProductCode,setProductCode,setProductName,setProductPrice,setIsEmpty}= useProductCode();
   // Kategorileri ve ürünleri kontrol etmek için state'ler tanımla
   const [showCategories, setShowCategories] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -156,14 +156,47 @@ const SelectProduct = () => {
     // Kategorileri gizle, ürünleri göster
     setShowCategories(false);
   };
-
+  const fetchProduct = async () => {
+    setIsEmpty(false);
+    const urls = [
+      'http://localhost:3003/home&clean',
+      'http://localhost:3003/Market',
+      'http://localhost:3003/Kitchen',
+      'http://localhost:3003/clothing&accessory',
+      'http://localhost:3003/home&life',
+      'http://localhost:3003/book&stationary',
+      'http://localhost:3003/withoutBarcode'
+    ];
+  
+    try {
+      for (const url of urls) {
+        const response = await axios.get(url);
+        const products = response.data;
+        for (const product of products) {
+          const numProductCode = Number(ProductCode);
+          if (product.code === numProductCode) {
+            setProductName(prevNames => [...prevNames, product.name]);
+             setProductPrice(prevPrices => [...prevPrices, product.price]);
+            return;
+          }
+        }
+      }
+  
+      // Eğer hiçbir ürün koduyla eşleşme bulunamazsa uyarı göster
+      console.log("Ürün bulunamadı.");
+    } catch (error) {
+      console.error('Ürünler getirilirken hata oluştu:', error);
+    }
+  
+  };
+  
   return (
     <div className='orderComponent '>
       {/* Barkod girişi ve kategori butonları */}
       <Input className='barcodeInput' onChange={(e)=>{setProductCode(e.target.value)}} sx={{ border: '1px solid black', borderRadius: '20px', backgroundColor: 'white', color: 'black', width: '90%', height: '50px', marginLeft: '10px', marginTop: '10px', fontSize: '20px', paddingLeft: '15px' }} disableUnderline='true' placeholder='Klavyeden Barkod Girişi' value={ProductCode}
         endAdornment={
           <InputAdornment position="start">
-             <IconButton onClick={()=>{setProductPrice(OldPrice)}}>
+             <IconButton onClick={()=>{fetchProduct()}}>
             <CheckCircleIcon  sx={{ color: 'black', fontSize: '50px' }} />
             </IconButton>
           </InputAdornment>
