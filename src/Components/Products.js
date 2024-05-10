@@ -76,10 +76,10 @@ import '../Styles/OrderPage.css';
 
 
 function ProductCard({ name, price ,code,image}) {
-  var {setProductCode,setOldPrice}= useProductCode();
+  var {setProductCode}= useProductCode();
   return (
     <Grid  item xs={12} md={6} lg={4}>
-         <Card onClick={()=>{setProductCode(code);setOldPrice(price)}} sx={{  maxWidth: 345,border:'1px solid gray',borderRadius:'20px',height:'140px',marginTop:'10px'}}>
+         <Card onClick={()=>{setProductCode(code)}} sx={{  maxWidth: 345,border:'1px solid gray',borderRadius:'20px',height:'140px',marginTop:'10px'}}>
       <CardActionArea >
         <CardMedia  sx={{width:'100%',marginTop:'5px',objectFit:'contain'}}
           component="img"
