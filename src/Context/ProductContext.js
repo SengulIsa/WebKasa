@@ -4,17 +4,19 @@ const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
   const [ProductCode, setProductCode] = useState('');
-  const [ProductPrice,setProductPrice]= useState(null);
-  const [OldPrice,setOldPrice] = useState(null);
-
-
+  const [ProductPrice,setProductPrice]= useState([]);
+  const [ProductName, setProductName] = useState([]);
+  const [IsEmpty, setIsEmpty] = useState(true);
+  
   const contextValue = {
     ProductCode,
     setProductCode,
     ProductPrice,
     setProductPrice,
-    OldPrice,
-    setOldPrice
+    ProductName,
+    setProductName,
+    IsEmpty,
+    setIsEmpty
   };
 
   return (
