@@ -157,7 +157,6 @@ const SelectProduct = () => {
     setShowCategories(false);
   };
   const fetchProduct = async () => {
-    setIsEmpty(false);
     const urls = [
       'http://localhost:3003/home&clean',
       'http://localhost:3003/Market',
@@ -175,6 +174,7 @@ const SelectProduct = () => {
         for (const product of products) {
           const numProductCode = Number(ProductCode);
           if (product.code === numProductCode) {
+            setIsEmpty(false);
             setProductName(prevNames => [...prevNames, product.name]);
              setProductPrice(prevPrices => [...prevPrices, product.price]);
             return;
