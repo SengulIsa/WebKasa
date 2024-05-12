@@ -204,6 +204,7 @@ const SelectProduct = () => {
       <Button sx={{ border: '1px solid gray', borderRadius: '20px', width: '30%', backgroundColor: 'white', color: 'black', marginTop: '10px', marginRight: '5px', marginLeft: '3px' }} onClick={() => { setShowCategories(true) }}>Kategoriler</Button>
       <Button sx={{ border: '1px solid gray', borderRadius: '20px', width: '30%', backgroundColor: 'white', color: 'black', marginTop: '10px', marginRight: '5px' }}>Alt Kategoriler</Button>
       <Button sx={{ border: '1px solid gray', borderRadius: '20px', width: '30%', backgroundColor: 'white', color: 'black', marginTop: '10px', }}>Ürünler</Button>
+      <div className="productListContainer">
       {/* Kategoriler veya ürünler */}
       {showCategories ? (
         // Kategorileri göster
@@ -262,6 +263,7 @@ const SelectProduct = () => {
           ctgry ={selectedCategory}
         />
       )}
+      </div>
     </div>
   )
 }

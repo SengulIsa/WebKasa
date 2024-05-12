@@ -23,3 +23,7 @@
     color: inherit !important;
   }
   
+  .productListContainer {
+    max-height: calc(100vh - 250px); /* Örnek bir değer, footer'ın yüksekliği ve diğer bileşenlerin toplam yüksekliği hesaba katılmalı */
+    overflow-y: auto;
+  }
