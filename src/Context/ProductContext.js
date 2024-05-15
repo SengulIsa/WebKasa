@@ -7,6 +7,8 @@ export const ProductProvider = ({ children }) => {
   const [ProductPrice,setProductPrice]= useState([]);
   const [ProductName, setProductName] = useState([]);
   const [IsEmpty, setIsEmpty] = useState(true);
+  const  [Amounts,setAmounts] = useState([]);
+  const [totalValue, setTotalValue] = useState(0);
   
   const contextValue = {
     ProductCode,
@@ -16,9 +18,12 @@ export const ProductProvider = ({ children }) => {
     ProductName,
     setProductName,
     IsEmpty,
-    setIsEmpty
-  };
-
+    setIsEmpty,
+    Amounts,
+    setAmounts,
+    totalValue,
+    setTotalValue
+  }
   return (
     <ProductContext.Provider value={contextValue}>
       {children}

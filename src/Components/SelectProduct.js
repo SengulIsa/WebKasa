@@ -16,7 +16,7 @@ import barkodsuz from '../Images/Products/WithoutBarcode/Barkodsuz.jpeg';
 import axios from 'axios';
 
 const SelectProduct = () => {
-  const {ProductCode,setProductCode,setProductName,setProductPrice,setIsEmpty}= useProductCode();
+  const {ProductCode,setProductCode,setProductName,setProductPrice,setIsEmpty,Amounts,setAmounts}= useProductCode();
   // Kategorileri ve ürünleri kontrol etmek için state'ler tanımla
   const [showCategories, setShowCategories] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -177,13 +177,14 @@ const SelectProduct = () => {
             setIsEmpty(false);
             setProductName(prevNames => [...prevNames, product.name]);
              setProductPrice(prevPrices => [...prevPrices, product.price]);
+             setAmounts([...Amounts]);
             return;
           }
         }
       }
   
       // Eğer hiçbir ürün koduyla eşleşme bulunamazsa uyarı göster
-      console.log("Ürün bulunamadı.");
+      alert("Ürün bulunamadı.");
     } catch (error) {
       console.error('Ürünler getirilirken hata oluştu:', error);
     }
