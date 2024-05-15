@@ -5,10 +5,24 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import ClearIcon from '@mui/icons-material/Clear';
 import BackspaceIcon from '@mui/icons-material/Backspace';
 import { useState } from 'react';
-
+import { useProductCode } from '../Context/ProductContext';
 
 const Calculator = () => {
    const [value, setValue] = useState('');
+   const { setAmounts,setIsEmpty,setTotalValue,setProductPrice,setProductName } = useProductCode();
+
+   const handleGirisClick = () => {
+     setAmounts(prevAmounts => [...prevAmounts, value]);
+     setValue('');
+   };
+   const DocumentCancel =()=>{
+      setIsEmpty(true);
+      setProductName([]);
+      setProductPrice([]);
+      setTotalValue(0);
+      
+
+   }
   return (
     <div className='orderComponent'>
       <Container sx={{marginTop:'10px'}}>
@@ -20,7 +34,7 @@ const Calculator = () => {
       <Button sx={{border:'1px solid blue', borderRadius:'20px',backgroundColor:'blue',color:'white',width:'50%',height:'40px',fontFamily:'inherit',fontSize:'15px'}}  >TAKSITLI</Button>
       </Container>
       <Container sx={{marginTop:'5px'}}>
-      <Button sx={{border:'1px solid red', borderRadius:'20px',backgroundColor:'red',color:'white',width:'30%',height:'40px',marginRight:'10px',fontFamily:'inherit',fontSize:'15px'}}  >BELGE IPTAL</Button>
+      <Button onClick={()=>{DocumentCancel()}} sx={{border:'1px solid red', borderRadius:'20px',backgroundColor:'red',color:'white',width:'30%',height:'40px',marginRight:'10px',fontFamily:'inherit',fontSize:'15px'}}  >BELGE IPTAL</Button>
         <Button sx={{border:'1px solid red', borderRadius:'20px',backgroundColor:'red',color:'white',width:'30%',height:'40px',fontFamily:'inherit',fontSize:'15px'}}  >SATIR IPTAL</Button>
         <Button sx={{border:'1px solid blue', borderRadius:'20px',backgroundColor:'blue',color:'white',width:'35%',height:'40px',marginLeft:'10px',fontFamily:'inherit',fontSize:'15px'}} >TAKSITLI</Button>
       </Container >
@@ -66,7 +80,7 @@ const Calculator = () => {
       <Container sx={{marginTop:'5px'}}>
       <Button onClick={e=> setValue( value + e.target.value) } sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'135px',height:'50px',marginRight:'5px',fontFamily:'inherit',fontSize:'25px',}} value={'0'} >0</Button>
         <Button onClick={e=> setValue( value + e.target.value) } sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'150px',height:'50px',fontFamily:'inherit',fontSize:'25px',marginRight:'5px'}} value={'.'}  >.</Button>
-        <Button sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'30%',height:'50px',marginLeft:'5px',fontFamily:'inherit',fontSize:'15px'}} >GIRIS</Button>
+        <Button onClick={handleGirisClick} sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'30%',height:'50px',marginLeft:'5px',fontFamily:'inherit',fontSize:'15px'}} >GIRIS</Button>
       </Container>
     </div>
   )
