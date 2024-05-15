@@ -6,7 +6,7 @@ import OrderedProducts from './OrderedProducts';
 
 
 const Cartcontent = () => {
-  const{ProductName,ProductPrice,IsEmpty}= useProductCode();
+  const{ProductName,ProductPrice,IsEmpty,totalValue}= useProductCode();
   const [subtotal, setSubtotal] = useState(0);
 
   useEffect(() => {
@@ -19,8 +19,8 @@ const Cartcontent = () => {
 
   return (
     <div className='orderComponent'>
-      
-  <Container sx={{display:'flex',flexDirection:'column',justifyContent:'space-between',width:'95%',height:'95%',backgroundColor:'white',marginTop:'10px',border:'1px solid gray',borderRadius:'10px'}}>
+      <div className='orderedproductlist'>
+      <Container sx={{display:'flex',flexDirection:'column',justifyContent:'space-between',width:'95%',height:'95%',backgroundColor:'white',marginTop:'10px',border:'1px solid gray',borderRadius:'10px'}}>
    {IsEmpty ?(
         <Container>
         <Typography sx={{margin:'60% 25%',fontSize:'18px'}}>Sepetinizde Ürün Yok</Typography>
@@ -32,13 +32,15 @@ const Cartcontent = () => {
   />
    )}
     <Container sx={{marginBottom:'5px',border:'1px solid gray',borderRadius:'10px',backgroundColor:'darkblue',color:'white',width:'100%'}}>
-      <Typography sx={{display:'flex',flexDirection:'row',justifyContent:'space-between'}}>Ara Toplam <Typography>{subtotal.toFixed(2)} TL</Typography></Typography>
+      <Typography sx={{display:'flex',flexDirection:'row',justifyContent:'space-between'}}>Ara Toplam <Typography>{totalValue.toFixed(2)} TL</Typography></Typography>
       <hr/>
-      <Typography sx={{display:'flex',flexDirection:'row',justifyContent:'space-between'}}>Toplam Tutar <Typography>{subtotal.toFixed(2)} TL</Typography></Typography>
+      <Typography sx={{display:'flex',flexDirection:'row',justifyContent:'space-between'}}>Toplam Tutar <Typography>{totalValue.toFixed(2)} TL</Typography></Typography>
     </Container>
   </Container>
 
     </div>
+      </div>
+ 
   )
 }
 
