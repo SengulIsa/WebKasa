@@ -40,7 +40,7 @@ const OrderPage = () => {
         <Calculator/>
       </div>
 
-      <footer style={{display:'flex',flexDirection:'row', justifyContent:'space-between', backgroundColor: 'rgb(218, 236, 237)', color: 'black', padding: '20px 0',height:'25px' }}>
+      <footer style={{display:'flex',flexDirection:'row', justifyContent:'space-between', backgroundColor: 'rgb(218, 236, 237)', color: 'black', padding: '20px 0',height:'30px' }}>
      
         <Typography>SATICI/MÜŞTERİ <Typography sx={{color:'green'}}>Merkeze Gönderilecek:0</Typography> </Typography>
         <Typography sx={{color:'green'}}>SATIŞ BELGESİ <Typography sx={{color:'black'}}>1057/1/10.0.2.16</Typography> </Typography>
