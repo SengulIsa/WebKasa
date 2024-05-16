@@ -27,8 +27,8 @@ const OrderedProducts = ({ names, prices }) => {
         </Typography>
         <Typography>
            {/* Amounts.length > index && */}
-        {<Typography>{Amounts[index]} pieces</Typography>}
-         <Typography>{price * Amounts[index]} TL</Typography>
+        {<Typography>{Amounts[index]} ADET</Typography>}
+         <Typography>{(price * Amounts[index]).toFixed(2)} TL</Typography>
          
         </Typography>
           </Container>
