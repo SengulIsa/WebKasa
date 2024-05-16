@@ -9,7 +9,7 @@ export const ProductProvider = ({ children }) => {
   const [IsEmpty, setIsEmpty] = useState(true);
   const  [Amounts,setAmounts] = useState([]);
   const [totalValue, setTotalValue] = useState(0);
-  
+  const [IsEntryClicked,setIsEntryClicked] = useState(false);
   const contextValue = {
     ProductCode,
     setProductCode,
@@ -22,7 +22,9 @@ export const ProductProvider = ({ children }) => {
     Amounts,
     setAmounts,
     totalValue,
-    setTotalValue
+    setTotalValue,
+    IsEntryClicked,
+    setIsEntryClicked
   }
   return (
     <ProductContext.Provider value={contextValue}>
