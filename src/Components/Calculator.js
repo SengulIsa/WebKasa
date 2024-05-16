@@ -9,20 +9,36 @@ import { useProductCode } from '../Context/ProductContext';
 
 const Calculator = () => {
    const [value, setValue] = useState('');
-   const { setAmounts,setIsEmpty,setTotalValue,setProductPrice,setProductName } = useProductCode();
+   const { setAmounts,setIsEmpty,setTotalValue,setProductPrice,setProductName,setIsEntryClicked,ProductName} = useProductCode();
 
    const handleGirisClick = () => {
-     setAmounts(prevAmounts => [...prevAmounts, value]);
-     setValue('');
-   };
+    if (value === '0') {
+      alert("Adet değeri sıfır olamaz!");
+      setValue('');
+    } else {
+      setIsEntryClicked(true);
+      setAmounts(prevAmounts => [...prevAmounts, value]);
+      setValue('');
+    }
+  };
+  
    const DocumentCancel =()=>{
       setIsEmpty(true);
       setProductName([]);
       setProductPrice([]);
+      setAmounts([]);
       setTotalValue(0);
       
-
    }
+   const removeLastProduct = () => {
+    if (ProductName.length > 1) {
+      setProductName(prevNames => prevNames.slice(0, -1));
+      setProductPrice(prevPrices => prevPrices.slice(0, -1));
+      setAmounts(prevAmounts => prevAmounts.slice(0, -1));
+    }
+    else
+    DocumentCancel();
+  };
   return (
     <div className='orderComponent'>
       <Container sx={{marginTop:'10px'}}>
@@ -35,7 +51,7 @@ const Calculator = () => {
       </Container>
       <Container sx={{marginTop:'5px'}}>
       <Button onClick={()=>{DocumentCancel()}} sx={{border:'1px solid red', borderRadius:'20px',backgroundColor:'red',color:'white',width:'30%',height:'40px',marginRight:'10px',fontFamily:'inherit',fontSize:'15px'}}  >BELGE IPTAL</Button>
-        <Button sx={{border:'1px solid red', borderRadius:'20px',backgroundColor:'red',color:'white',width:'30%',height:'40px',fontFamily:'inherit',fontSize:'15px'}}  >SATIR IPTAL</Button>
+        <Button onClick={()=>{removeLastProduct();}} sx={{border:'1px solid red', borderRadius:'20px',backgroundColor:'red',color:'white',width:'30%',height:'40px',fontFamily:'inherit',fontSize:'15px'}}  >SATIR IPTAL</Button>
         <Button sx={{border:'1px solid blue', borderRadius:'20px',backgroundColor:'blue',color:'white',width:'35%',height:'40px',marginLeft:'10px',fontFamily:'inherit',fontSize:'15px'}} >TAKSITLI</Button>
       </Container >
       <Container sx={{marginTop:'5px'}}>
