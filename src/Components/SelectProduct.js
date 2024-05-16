@@ -16,7 +16,7 @@ import barkodsuz from '../Images/Products/WithoutBarcode/Barkodsuz.jpeg';
 import axios from 'axios';
 
 const SelectProduct = () => {
-  const {ProductCode,setProductCode,setProductName,setProductPrice,setIsEmpty,Amounts,setAmounts}= useProductCode();
+  const {ProductCode,setProductCode,setProductName,setProductPrice,setIsEmpty,Amounts,setAmounts,IsEntryClicked,setIsEntryClicked}= useProductCode();
   // Kategorileri ve ürünleri kontrol etmek için state'ler tanımla
   const [showCategories, setShowCategories] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -157,6 +157,8 @@ const SelectProduct = () => {
     setShowCategories(false);
   };
   const fetchProduct = async () => {
+    if(IsEntryClicked){
+      setIsEntryClicked(false)
     const urls = [
       'http://localhost:3003/home&clean',
       'http://localhost:3003/Market',
@@ -177,19 +179,33 @@ const SelectProduct = () => {
             setIsEmpty(false);
             setProductName(prevNames => [...prevNames, product.name]);
              setProductPrice(prevPrices => [...prevPrices, product.price]);
-             setAmounts([...Amounts]);
+              setAmounts([...Amounts]);
             return;
           }
         }
-      }
-  
+      
+    }
       // Eğer hiçbir ürün koduyla eşleşme bulunamazsa uyarı göster
       alert("Ürün bulunamadı.");
-    } catch (error) {
+      removeLastAmount();
+      
+    } catch (error) 
+    {
       console.error('Ürünler getirilirken hata oluştu:', error);
     }
-  
+    }
+    else
+    alert("Adet Bilgisi Giriniz");
   };
+  // "Ürün bulunamadı" uyarısı aldığımızda çalışacak fonksiyon
+const removeLastAmount = () => {
+  setAmounts(prevAmounts => {
+    // Eğer Amounts dizisi boşsa, herhangi bir işlem yapmadan geri dön
+    if (prevAmounts.length === 0) return prevAmounts;
+    // Son elemanı silip yeni diziyi döndür
+    return prevAmounts.slice(0, -1);
+  });
+};
   
   return (
     <div className='orderComponent '>
