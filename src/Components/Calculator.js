@@ -8,10 +8,13 @@ import { useState } from 'react';
 import { useProductCode } from '../Context/ProductContext';
 import CampaignModal from './Campaign';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Calculator = () => {
    const [value, setValue] = useState('');
    const [isCampaignModalOpen, setCampaignModalOpen] = useState(false);
+  const navigate = useNavigate();
+
    const { setAmounts,setIsEmpty,setTotalValue,setProductPrice,setProductName,setIsEntryClicked,ProductName,selectedProductIndex,setSelectedProductIndex,IsSelected,setIsSelected,setTwentyOffDisabled,setTenOffDisabled} = useProductCode();
 
    const handleGirisClick = () => {
@@ -157,7 +160,7 @@ const applyCampaign = async (campaign) => {
         </div>
       </div>
       <div>
-        <Button sx={{border:'1px solid green', borderRadius:'20px',backgroundColor:'green',color:'white',width:'160px',height:'105px',marginLeft:'10px',fontFamily:'inherit',fontSize:'15px'}} >ARA TOPLAM</Button>
+        <Button sx={{border:'1px solid green', borderRadius:'20px',backgroundColor:'green',color:'white',width:'160px',height:'105px',marginLeft:'10px',fontFamily:'inherit',fontSize:'15px'}} onClick={()=> navigate('/AraToplam')} >ARA TOPLAM</Button>
       </div> 
       </Container>
       <Container sx={{marginTop:'5px'}}>
