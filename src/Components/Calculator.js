@@ -6,10 +6,13 @@ import ClearIcon from '@mui/icons-material/Clear';
 import BackspaceIcon from '@mui/icons-material/Backspace';
 import { useState } from 'react';
 import { useProductCode } from '../Context/ProductContext';
+import CampaignModal from './Campaign';
+import axios from 'axios';
 
 const Calculator = () => {
    const [value, setValue] = useState('');
-   const { setAmounts,setIsEmpty,setTotalValue,setProductPrice,setProductName,setIsEntryClicked,ProductName} = useProductCode();
+   const [isCampaignModalOpen, setCampaignModalOpen] = useState(false);
+   const { setAmounts,setIsEmpty,setTotalValue,setProductPrice,setProductName,setIsEntryClicked,ProductName,selectedProductIndex,setSelectedProductIndex,IsSelected,setIsSelected,setTwentyOffDisabled,setTenOffDisabled} = useProductCode();
 
    const handleGirisClick = () => {
     if (value === '0') {
@@ -28,17 +31,81 @@ const Calculator = () => {
       setProductPrice([]);
       setAmounts([]);
       setTotalValue(0);
+      setTwentyOffDisabled(false);
       
    }
-   const removeLastProduct = () => {
-    if (ProductName.length > 1) {
-      setProductName(prevNames => prevNames.slice(0, -1));
-      setProductPrice(prevPrices => prevPrices.slice(0, -1));
-      setAmounts(prevAmounts => prevAmounts.slice(0, -1));
+   const removeSelectedProduct = () => {
+    if (IsSelected) {
+        if (selectedProductIndex !== null && selectedProductIndex < ProductName.length) {
+            setProductName(prevNames => prevNames.filter((_, index) => index !== selectedProductIndex));
+            setProductPrice(prevPrices => prevPrices.filter((_, index) => index !== selectedProductIndex));
+            setAmounts(prevAmounts => prevAmounts.filter((_, index) => index !== selectedProductIndex));
+            setSelectedProductIndex(null);
+            setIsSelected(false);
+
+            // Eğer tüm ürünler silindiyse, DocumentCancel fonksiyonunu çağır
+            if (ProductName.length === 1) {
+                DocumentCancel();
+            }
+        } else if (selectedProductIndex === 0 && ProductName.length === 1) {
+            DocumentCancel();
+        }
+    } else {
+        alert("Lütfen İptal edilecek satırı seçiniz");
     }
-    else
-    DocumentCancel();
-  };
+};
+const applyCampaign = async (campaign) => {
+  if (!IsSelected || selectedProductIndex === null || selectedProductIndex >= ProductName.length) {
+    alert("Lütfen kampanyayı uygulamak istediğiniz ürünü seçin.");
+    return;
+  }
+
+  if (campaign === '20off') {
+    try {
+      const response = await axios.get('http://localhost:3003/home&clean');
+      const cleanProductNames = response.data.map(product => product.name);
+
+      if (!cleanProductNames.includes(ProductName[selectedProductIndex])) {
+        alert("Seçilen ürün temizlik ürünü değil, bu kampanya uygulanamaz.");
+        setTwentyOffDisabled(false);
+        return;
+      }
+
+      setProductPrice(prevPrices =>
+        prevPrices.map((price, index) =>
+          index === selectedProductIndex ? price * 0.8 : price
+        )
+      );
+    } catch (error) {
+      console.error('Temizlik ürünleri indirimi uygulanırken hata oluştu:', error);
+    }
+  } else if (campaign === '10off') {
+    try {
+      const response = await axios.get('http://localhost:3003/clothing&accessory');
+      const clothingProductNames = response.data.map(product => product.name);
+
+      if (!clothingProductNames.includes(ProductName[selectedProductIndex])) {
+        alert("Seçilen ürün giyim veya aksesuar ürünü değil, bu kampanya uygulanamaz.");
+        setTenOffDisabled(false);
+        return;
+      }
+
+      setProductPrice(prevPrices =>
+        prevPrices.map((price, index) =>
+          index === selectedProductIndex ? price * 0.9 : price
+        )
+      );
+    } catch (error) {
+      console.error('Giyim Aksesuar ürünleri indirimi uygulanırken hata oluştu:', error);
+    }
+  }
+
+  setCampaignModalOpen(false);
+};
+
+
+
+
   return (
     <div className='orderComponent'>
       <Container sx={{marginTop:'10px'}}>
@@ -51,7 +118,7 @@ const Calculator = () => {
       </Container>
       <Container sx={{marginTop:'5px'}}>
       <Button onClick={()=>{DocumentCancel()}} sx={{border:'1px solid red', borderRadius:'20px',backgroundColor:'red',color:'white',width:'30%',height:'40px',marginRight:'10px',fontFamily:'inherit',fontSize:'15px'}}  >BELGE IPTAL</Button>
-        <Button onClick={()=>{removeLastProduct();}} sx={{border:'1px solid red', borderRadius:'20px',backgroundColor:'red',color:'white',width:'30%',height:'40px',fontFamily:'inherit',fontSize:'15px'}}  >SATIR IPTAL</Button>
+        <Button onClick={()=>{removeSelectedProduct();}} sx={{border:'1px solid red', borderRadius:'20px',backgroundColor:'red',color:'white',width:'30%',height:'40px',fontFamily:'inherit',fontSize:'15px'}}  >SATIR IPTAL</Button>
         <Button sx={{border:'1px solid blue', borderRadius:'20px',backgroundColor:'blue',color:'white',width:'35%',height:'40px',marginLeft:'10px',fontFamily:'inherit',fontSize:'15px'}} >TAKSITLI</Button>
       </Container >
       <Container sx={{marginTop:'5px'}}>
@@ -68,7 +135,7 @@ const Calculator = () => {
       <Container sx={{marginTop:'5px'}}>
       <Button onClick={e=> setValue( value + e.target.value) } sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'30%',height:'50px',marginRight:'5px',fontFamily:'inherit',fontSize:'25px'}} value={'00'} >00</Button>
         <Button onClick={e=> setValue(value.slice(0,-1))} sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'30%',height:'50px',fontFamily:'inherit',fontSize:'25px'}}  ><BackspaceIcon fontSize='large'/></Button>
-        <Button sx={{border:'1px solid green', borderRadius:'20px',backgroundColor:'green',color:'white',width:'35%',height:'50px',marginLeft:'5px',fontFamily:'inherit',fontSize:'15px'}} >KAMPANYA LISTESI</Button>
+        <Button sx={{border:'1px solid green', borderRadius:'20px',backgroundColor:'green',color:'white',width:'35%',height:'50px',marginLeft:'5px',fontFamily:'inherit',fontSize:'15px'}} onClick={() => setCampaignModalOpen(true)} >KAMPANYA LISTESI</Button>
       </Container >
       <Container sx={{marginTop:'5px'}}>
       <Button onClick={e=> setValue( value + e.target.value) } sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'20%',height:'50px',marginRight:'5px',fontFamily:'inherit',fontSize:'25px'}} value={'7'}>7</Button>
@@ -98,6 +165,7 @@ const Calculator = () => {
         <Button onClick={e=> setValue( value + e.target.value) } sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'150px',height:'50px',fontFamily:'inherit',fontSize:'25px',marginRight:'5px'}} value={'.'}  >.</Button>
         <Button onClick={handleGirisClick} sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'30%',height:'50px',marginLeft:'5px',fontFamily:'inherit',fontSize:'15px'}} >GIRIS</Button>
       </Container>
+      <CampaignModal open={isCampaignModalOpen} handleClose={() => setCampaignModalOpen(false)} applyCampaign={applyCampaign} />
     </div>
   )
 }
