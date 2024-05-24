@@ -9,6 +9,7 @@ import { useProductCode } from '../Context/ProductContext';
 
 const PaymentClaculator = () => {
   const [value1, setValue1] = useState('');
+  const [change, setChange] = useState(0.00);
   const {totalValue} = useProductCode();
   return (
     <div className='PaymentCmpnts'>
@@ -48,7 +49,7 @@ const PaymentClaculator = () => {
         </div>
       </div>
       <div>
-        <Button sx={{border:'1px solid green', borderRadius:'20px',backgroundColor:'green',color:'white',width:'160px',height:'105px',marginLeft:'10px',fontFamily:'inherit',fontSize:'15px'}} onClick={()=>{setValue1((totalValue.toFixed(2)))}} >KREDİ KARTI</Button>
+        <Button sx={{border:'1px solid green', borderRadius:'20px',backgroundColor:'green',color:'white',width:'160px',height:'105px',marginLeft:'10px',fontFamily:'inherit',fontSize:'15px'}} onClick={()=>{setValue1((totalValue.toFixed(2))); setChange(0.00)}} >KREDİ KARTI</Button>
       </div> 
       </Container>
       <Container sx={{marginTop:'5px',display:'flex',flexDirection:'row'}} >
@@ -64,12 +65,12 @@ const PaymentClaculator = () => {
         </div>
       </div>
       <div>
-        <Button sx={{border:'1px solid green', borderRadius:'20px',backgroundColor:'green',color:'white',width:'160px',height:'105px',marginLeft:'5px',fontFamily:'inherit',fontSize:'15px'}} >NAKİT</Button>
+        <Button sx={{border:'1px solid green', borderRadius:'20px',backgroundColor:'green',color:'white',width:'160px',height:'105px',marginLeft:'5px',fontFamily:'inherit',fontSize:'15px'}} onClick={()=>{setChange((value1)-totalValue)}} >NAKİT</Button>
       </div> 
       </Container>
       <Container sx={{marginTop:'15px'}}>
       <Box  component="section" sx={{ p: 2, border: '1px dashed grey', backgroundColor:'yellow',color:'black' }}>
-       PARA ÜSTÜ :{(value1-totalValue).toFixed(2)} TL
+       PARA ÜSTÜ :{change} TL
     </Box>
       </Container>
     </div>
