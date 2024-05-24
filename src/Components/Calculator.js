@@ -60,6 +60,7 @@ const Calculator = () => {
 const applyCampaign = async (campaign) => {
   if (!IsSelected || selectedProductIndex === null || selectedProductIndex >= ProductName.length) {
     alert("Lütfen kampanyayı uygulamak istediğiniz ürünü seçin.");
+    setTwentyOffDisabled(false);
     return;
   }
 
