@@ -12,28 +12,17 @@ export const ProductProvider = ({ children }) => {
   const [IsEntryClicked,setIsEntryClicked] = useState(false);
   const [selectedProductIndex, setSelectedProductIndex] = useState(null);
   const [IsSelected,setIsSelected] = useState(null);
-  const [twentyOffDisabled, setTwentyOffDisabled] = useState(false);
-  const [tenOffDisabled, setTenOffDisabled] = useState(false);
-
+  
   const contextValue = {
-    ProductCode,
-    setProductCode,
-    ProductPrice,
-    setProductPrice,
-    ProductName,
-    setProductName,
-    IsEmpty,
-    setIsEmpty,
-    Amounts,
-    setAmounts,
-    totalValue,
-    setTotalValue,
-    IsEntryClicked,
-    setIsEntryClicked,
-    selectedProductIndex,
-    setSelectedProductIndex,
-    IsSelected,
-    setIsSelected,twentyOffDisabled,setTwentyOffDisabled,tenOffDisabled,setTenOffDisabled
+    ProductCode, setProductCode,
+    ProductPrice,setProductPrice,
+    ProductName,setProductName,
+    IsEmpty, setIsEmpty,
+    Amounts, setAmounts,
+    totalValue,setTotalValue,
+    IsEntryClicked,setIsEntryClicked,
+    selectedProductIndex, setSelectedProductIndex,
+    IsSelected,setIsSelected,
   }
   return (
     <ProductContext.Provider value={contextValue}>
