@@ -15,7 +15,7 @@ const Calculator = () => {
    const [isCampaignModalOpen, setCampaignModalOpen] = useState(false);
   const navigate = useNavigate();
 
-   const { setAmounts,setIsEmpty,setTotalValue,setProductPrice,setProductName,setIsEntryClicked,ProductName,selectedProductIndex,setSelectedProductIndex,IsSelected,setIsSelected,setTwentyOffDisabled,setTenOffDisabled} = useProductCode();
+   const { setAmounts,setIsEmpty,setTotalValue,setProductPrice,setProductName,setIsEntryClicked,ProductName,selectedProductIndex,setSelectedProductIndex,IsSelected,setIsSelected} = useProductCode();
 
    const handleGirisClick = () => {
     if (value === '0') {
@@ -33,9 +33,7 @@ const Calculator = () => {
       setProductName([]);
       setProductPrice([]);
       setAmounts([]);
-      setTotalValue(0);
-      setTwentyOffDisabled(false);
-      
+      setTotalValue(0); 
    }
    const removeSelectedProduct = () => {
     if (IsSelected) {
@@ -60,7 +58,6 @@ const Calculator = () => {
 const applyCampaign = async (campaign) => {
   if (!IsSelected || selectedProductIndex === null || selectedProductIndex >= ProductName.length) {
     alert("Lütfen kampanyayı uygulamak istediğiniz ürünü seçin.");
-    setTwentyOffDisabled(false);
     return;
   }
 
@@ -71,7 +68,6 @@ const applyCampaign = async (campaign) => {
 
       if (!cleanProductNames.includes(ProductName[selectedProductIndex])) {
         alert("Seçilen ürün temizlik ürünü değil, bu kampanya uygulanamaz.");
-        setTwentyOffDisabled(false);
         return;
       }
 
@@ -90,7 +86,6 @@ const applyCampaign = async (campaign) => {
 
       if (!clothingProductNames.includes(ProductName[selectedProductIndex])) {
         alert("Seçilen ürün giyim veya aksesuar ürünü değil, bu kampanya uygulanamaz.");
-        setTenOffDisabled(false);
         return;
       }
 
