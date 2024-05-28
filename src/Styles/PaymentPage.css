@@ -4,3 +4,7 @@
     border: 1px solid gray;
     background-color: rgb(218, 236, 237);
 }
+.slip-products{
+    max-height: calc(100vh - 150px); /* Örnek bir değer, footer'ın yüksekliği ve diğer bileşenlerin toplam yüksekliği hesaba katılmalı */
+    overflow-y: auto;
+  }
