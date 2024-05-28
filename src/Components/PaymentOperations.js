@@ -3,11 +3,16 @@ import '../Styles/PaymentPage.css';
 import { Button, Container, Typography, Modal } from '@mui/material';
 import CropSquareIcon from '@mui/icons-material/CropSquare';
 import Invoice from './Invoice'; 
+import { useProductCode } from '../Context/ProductContext';
 
 const PaymentOperations = () => {
  const [openInvoice, setOpenInvoice] = useState(false);
+ const {IsEmpty}=useProductCode();
 
   const handleOpenInvoice = () => {
+      if(IsEmpty)
+        alert('Sepette ürün olmadığı için fatura gönderimi yapılamaz.Lütfen ürün ekleyin');
+      else
       setOpenInvoice(true);
   };
 
