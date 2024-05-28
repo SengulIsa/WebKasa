@@ -12,7 +12,7 @@ const PaymentSlip = () => {
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
-    documentTitle: 'pymnt-data',
+    documentTitle: 'pymnt-data'+{paymentCount},
     onAfterPrint: () => alert('Başarıyla Yazdırıldı.')
   });
   const currentDate = new Date();
@@ -22,8 +22,10 @@ const PaymentSlip = () => {
   const cashier = localStorage.getItem('Username');
 
   return (
-    <div ref={componentRef}>
+    <>
       <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 600, height: 650, bgcolor: 'background.paper', boxShadow: 24, p: 4 }}>
+      <Container  className='slip-products'>
+      <div ref={componentRef}>
         <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Typography sx={{ marginBottom: '5px' }}>ÖRNEK İŞLETME</Typography>
           <Typography>DEMİRCİKARA MAH. 1431. SOK. NO:12</Typography>
@@ -82,6 +84,7 @@ const PaymentSlip = () => {
           </Typography>
         </Container>
         <Typography sx={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}>KDV FİŞİ DEĞİLDİR</Typography>
+     </div>  
         <Container className="no-print" sx={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', display: 'flex', justifyContent: 'center' }}>
           <Button
             onClick={() => { setIsPaymentSlipOpen(false) }}
@@ -114,8 +117,10 @@ const PaymentSlip = () => {
             Yazdır
           </Button>
         </Container>
+        </Container>
       </Box>
-    </div>
+     
+      </>
   );
 };
 export default PaymentSlip;
