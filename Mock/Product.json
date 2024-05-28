@@ -12,7 +12,7 @@
             
         },
         {
-            "name": "Sleepy Yüzey Temizlik Havlusu Klasik 100'lü",
+            "name": "Sleepy Yüzey Temizlik Havlusu 100'lü",
             "price":77.00,
             "code":9101
         },
@@ -62,7 +62,8 @@
          {
             "name": "Nescafe Extra 3'ü 1 Arada 10'lu",
             "price":34.5 ,
-            "code":2829
+            "code":2829,
+            "image":"Images/Nescafe.jpeg"
         },
         {
             "name": "Cappy Şekersiz Limonata 1 L",
@@ -179,7 +180,7 @@
             "code":7273
         },
         {
-            "name": "Calvin Klein KAdın Tayt Siyah",
+            "name": "Calvin Klein Kadın Tayt Siyah",
             "price":429.00,
             "code":7475
         },
