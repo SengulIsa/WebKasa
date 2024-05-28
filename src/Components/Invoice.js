@@ -40,7 +40,8 @@ const Invoice = ({ setOpenInvoice }) => {
   return (
     <div ref={componentRef}>
       <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 600, height: 700, bgcolor: 'background.paper', boxShadow: 24, p: 4 }}>
-        <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <Container className='slip-products'>
+      <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Typography sx={{ marginBottom: '5px' }}>ÖRNEK İŞLETME</Typography>
           <Typography>DEMİRCİKARA MAH. 1431. SOK. NO:12</Typography>
           <Typography>0242 311 41 21</Typography>
@@ -57,7 +58,7 @@ const Invoice = ({ setOpenInvoice }) => {
             <Typography>SATIŞ: {formattedPaymentType}</Typography>
           </Container>
         </Container>
-        <hr />
+        <hr style={{border: 'none',height: '1px',backgroundColor: 'black'}}/>
         <Container>
         {ProductPrice.map((price, index) => (
         <Grid key={index} >
@@ -83,7 +84,7 @@ const Invoice = ({ setOpenInvoice }) => {
         </Grid>
       ))}
         </Container>
-        <hr />
+        <hr style={{border: 'none',height: '1px',backgroundColor: 'black'}}/>
         <Container>
           <Typography>
             <span>ALINAN PARA:</span>
@@ -92,12 +93,13 @@ const Invoice = ({ setOpenInvoice }) => {
           <Typography>
             <span>PARA ÜSTÜ:</span>
             <span style={{ float: 'right' }}>*{parseFloat(change).toFixed(2)} TL</span>
-            <hr />
+            <hr style={{border: 'none',height: '1px',backgroundColor: 'black'}}/>
             <span>GENEL TOPLAM:</span>
             <span style={{ float: 'right' }}>*{(receivedMoney - change).toFixed(2)} TL</span>
           </Typography>
         </Container>
-        <Typography sx={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}>KDV FİŞİ DEĞİLDİR</Typography>
+        <Typography sx={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}>E-FATURA</Typography>
+      </Container>
         <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>
           <TextField 
             label="Email Address" 
