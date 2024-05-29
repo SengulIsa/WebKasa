@@ -74,6 +74,7 @@ const PaymentCalculator = () => {
     setTotalValue(0);
     setPaymentType([]); // Clear payment type array
     setReceivedMoney(0.00);
+    setChange(0.00);
   };
   const removeSelectedProduct = () => {
     if (IsSelected) {
