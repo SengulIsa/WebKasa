@@ -7,7 +7,6 @@ import '../Styles/PaymentPage.css';
 const Invoice = ({ setOpenInvoice }) => {
   const { paymentCount, receivedMoney, change, paymentType } = usePaymentInfo();
   const{ProductName,ProductPrice,Amounts}= useProductCode();
-  const componentRef = useRef();
   const [email, setEmail] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(false);
   const currentDate = new Date();
@@ -38,7 +37,7 @@ const Invoice = ({ setOpenInvoice }) => {
   };
 
   return (
-    <div ref={componentRef}>
+    <div >
       <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 600, height: 700, bgcolor: 'background.paper', boxShadow: 24, p: 4 }}>
     <Container className='slip-products'>
       <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -99,7 +98,6 @@ const Invoice = ({ setOpenInvoice }) => {
           </Typography>
         </Container>
         <Typography sx={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}>E-FATURA</Typography>
-      </Container>
         <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>
           <TextField 
             label="Email Address" 
@@ -143,6 +141,7 @@ const Invoice = ({ setOpenInvoice }) => {
               Gönder
             </Button>
           </Container>
+        </Container>
         </Container>
       </Box>
     </div>
