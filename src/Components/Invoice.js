@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, {  useState } from 'react';
 import { Box, Button, Container, Typography, TextField,Grid } from '@mui/material';
 import { usePaymentInfo } from '../Context/PaymentContext';
 import { useProductCode } from '../Context/ProductContext';
@@ -54,7 +54,7 @@ const Invoice = ({ setOpenInvoice }) => {
           </Container>
           <Container>
             <Typography>SAAT: {formattedTime}</Typography>
-            <Typography>SATIŞ: {formattedPaymentType}</Typography>
+            <Typography sx={{fontSize:'14px'}}>SATIŞ: {formattedPaymentType}</Typography>
           </Container>
         </Container>
         <hr style={{border: 'none',height: '1px',backgroundColor: 'black'}}/>
