@@ -3,37 +3,37 @@
       {
         "id": 1,
         "name": "AHMET ALIÇ",
-        "userCode": "Sir_Ahmet",
-        "password": "54ahmet49"
+        "userCode": "AHMETALÇ",
+        "password": "543449"
         
         
       },
       {
         "id": 2,
         "name": "İSA ŞENGÜL",
-        "userCode": "SengulIsa",
-        "password": "123Zxc.:"
+        "userCode": "SNGLISA",
+        "password": "123789"
      
       },
       {
         "id": 3,
         "name": "MEHMET ULAŞ",
-        "userCode": "Mehmet_Ulaş",
-        "password": "mht.ulş.45"
+        "userCode": "MEHMETULŞ",
+        "password": "444555"
       
       },
       {
         "id": 4,
         "name": "ÖMER FARUK ŞENGÜL",
-        "userCode": "Ömer_Faruk",
-        "password": "ABC123.,"
+        "userCode": "ÖMERFRK",
+        "password": "494949"
         
       },
       {
         "id": 5,
         "name": "MERVE ÇELİK",
-        "userCode": "Merve_Çelik",
-        "password": "mrv.çlk.12345"
+        "userCode": "MERVEÇLK",
+        "password": "258369"
         
       }
     ]
