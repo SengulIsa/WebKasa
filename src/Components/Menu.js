@@ -202,7 +202,7 @@ const Menu = () => {
               alignItems:'center'
             }}>
               <LayersIcon sx={{border:'1px solid blue', backgroundColor:'blue',borderRadius:'10px', fontSize:'40px',color:'white'}}/>
-              <Link onClick={()=>navigate("/Satış")} 
+              <Link onClick={()=>navigate("/Ayarlar")} 
               sx=
               {{
                 marginLeft:'20px',
