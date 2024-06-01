@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { useProductCode } from '../Context/ProductContext';
+import { useUser } from '../Context/UsersContext';
 import { Input, InputAdornment, Button, Container, IconButton } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -14,9 +15,13 @@ import Market from '../Images/Products/Market/Market.jpeg';
 import Clean from '../Images/Products/Home&Clean/Temizlik.jpeg';
 import barkodsuz from '../Images/Products/WithoutBarcode/Barkodsuz.jpeg';
 import axios from 'axios';
+import ProoductsVirtualKeybord from './ProductsVirtualKeybord';
+import { useNavigate } from 'react-router-dom';
 
 const SelectProduct = () => {
-  const {ProductCode,setProductCode,setProductName,setProductPrice,setIsEmpty,Amounts,setAmounts,IsEntryClicked,setIsEntryClicked}= useProductCode();
+ const navigate = useNavigate();
+  const {ProductCode,setProductCode,setProductName,setProductPrice,setIsEmpty,Amounts,setAmounts,IsEntryClicked,setIsEntryClicked,showProductKeybrd,setShowProductKeybrd}= useProductCode();
+  const {activeInput, setActiveInput}= useUser()
   // Kategorileri ve ürünleri kontrol etmek için state'ler tanımla
   const [showCategories, setShowCategories] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -206,11 +211,45 @@ const removeLastAmount = () => {
     return prevAmounts.slice(0, -1);
   });
 };
+const handleKeyPress = (key) => {
+  if (key === 'Sil') {
+    // Geri tuşuna basıldıysa
+    if (activeInput === 'product') {
+      setProductCode(ProductCode.slice(0, -1));
+    } 
+  } else if (key === 'Giriş') {
+    setShowProductKeybrd(false); // Giriş tuşuna basıldığında klavyeyi kapat
+  }
+  else if(key ==='Vazgeç'){
+    setShowProductKeybrd(false);
+  }
+  else if(key ==='temizle'){
+    setProductCode('');
+  }
+  else {
+    if (activeInput === 'product') {
+      setProductCode(ProductCode + key);
+    } 
+  }
+};
   
   return (
     <div className='orderComponent '>
       {/* Barkod girişi ve kategori butonları */}
-      <Input className='barcodeInput' onChange={(e)=>{setProductCode(e.target.value)}} sx={{ border: '1px solid black', borderRadius: '20px', backgroundColor: 'white', color: 'black', width: '90%', height: '50px', marginLeft: '10px', marginTop: '10px', fontSize: '20px', paddingLeft: '15px' }} disableUnderline='true' placeholder='Klavyeden Barkod Girişi' value={ProductCode}
+      <Input className='barcodeInput' 
+      onChange={(e)=>{setProductCode(e.target.value)}} 
+      onFocus={() => { setActiveInput('product'); setShowProductKeybrd(true); }}
+      sx={{ 
+        border: '1px solid black',
+         borderRadius: '20px',
+          backgroundColor: 'white',
+           color: 'black', width: '90%',
+            height: '50px', marginLeft: '10px', marginTop: '10px',
+             fontSize: '20px', paddingLeft: '15px'
+             }}
+              disableUnderline='true' 
+              placeholder='Klavyeden Barkod Girişi' 
+              value={ProductCode}
         endAdornment={
           <InputAdornment position="start">
              <IconButton onClick={()=>{fetchProduct()}}>
@@ -220,7 +259,7 @@ const removeLastAmount = () => {
         }></Input>
       <Button sx={{ border: '1px solid gray', borderRadius: '20px', width: '30%', backgroundColor: 'white', color: 'black', marginTop: '10px', marginRight: '5px', marginLeft: '3px' }} onClick={() => { setShowCategories(true) }}>Kategoriler</Button>
       <Button sx={{ border: '1px solid gray', borderRadius: '20px', width: '30%', backgroundColor: 'white', color: 'black', marginTop: '10px', marginRight: '5px' }}>Alt Kategoriler</Button>
-      <Button sx={{ border: '1px solid gray', borderRadius: '20px', width: '30%', backgroundColor: 'white', color: 'black', marginTop: '10px', }}>Ürünler</Button>
+      <Button onClick={()=> navigate('/Ürünler')} sx={{ border: '1px solid gray', borderRadius: '20px', width: '30%', backgroundColor: 'white', color: 'black', marginTop: '10px', }}>Ürünler</Button>
       <div className="productListContainer">
       {/* Kategoriler veya ürünler */}
       {showCategories ? (
@@ -281,6 +320,7 @@ const removeLastAmount = () => {
         />
       )}
       </div>
+      {showProductKeybrd && <ProoductsVirtualKeybord onKeyPress={handleKeyPress} />}
     </div>
   )
 }
