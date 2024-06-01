@@ -1,0 +1,20 @@
+.settings{
+    background-color: rgb(218, 236, 237);
+    height: 93.8vh;
+    width:208.2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.settings-up{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:darkblue;
+    background-color: rgb(218, 236, 237);
+}
+.back-icon{
+    margin-left: 20px;
+    order:1;
+}
