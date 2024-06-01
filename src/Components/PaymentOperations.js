@@ -3,16 +3,15 @@ import '../Styles/PaymentPage.css';
 import { Button, Container, Typography, Modal } from '@mui/material';
 import CropSquareIcon from '@mui/icons-material/CropSquare';
 import Invoice from './Invoice'; 
-import { useProductCode } from '../Context/ProductContext';
+import { usePaymentInfo } from '../Context/PaymentContext';
+
 
 const PaymentOperations = () => {
  const [openInvoice, setOpenInvoice] = useState(false);
- const {IsEmpty}=useProductCode();
+ const {isDocumentFinishDisabled}=usePaymentInfo();
 
   const handleOpenInvoice = () => {
-      if(IsEmpty)
-        alert('Sepette ürün olmadığı için fatura gönderimi yapılamaz.Lütfen ürün ekleyin');
-      else
+    
       setOpenInvoice(true);
   };
 
@@ -51,7 +50,9 @@ const PaymentOperations = () => {
             width:'100%',height:'60px',
             marginBottom:'5px',
             backgroundColor:'brown', color:'white',fontSize:'17px',fontFamily:'fantasy'
-          }}>
+          }}
+          disabled={isDocumentFinishDisabled}
+          >
             <Typography>E-FATURA</Typography>
         </Button>
         <Button

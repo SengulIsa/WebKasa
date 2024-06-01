@@ -12,7 +12,7 @@ const PaymentCalculator = () => {
   const [IsCardClicked, setIsCardClicked] = useState(false);
   const [totalCashPayment, setTotalCashPayment] = useState(0.00);
   const { totalValue, setIsEmpty,IsEmpty, setProductName, setProductPrice, setAmounts, setTotalValue,ProductName,selectedProductIndex,setSelectedProductIndex,IsSelected,setIsSelected } = useProductCode();
-  const { isPaymentSlipOpen, setIsPaymentSlipOpen, paymentCount, setPaymentCount, setReceivedMoney, change, setChange, setPaymentType,paymentType} = usePaymentInfo();
+  const { isPaymentSlipOpen, setIsPaymentSlipOpen, paymentCount, setPaymentCount, setReceivedMoney, change, setChange, setPaymentType,paymentType,setIsDocumentfinishDisabled} = usePaymentInfo();
 
   const handleCashPayment = () => {
     if(IsEmpty){
@@ -58,12 +58,13 @@ const PaymentCalculator = () => {
     setTotalCashPayment(0.00);
     setIsCardClicked(false);
     setPaymentType([]); 
+    setIsDocumentfinishDisabled(true);
   };
 
   const openPaymentSlip = () => {
      setIsPaymentSlipOpen(true);
     setPaymentCount(paymentCount + 1);
-   
+    setIsDocumentfinishDisabled(false);
   };
 
   const DocumentCancel = () => {
@@ -75,6 +76,7 @@ const PaymentCalculator = () => {
     setPaymentType([]); // Clear payment type array
     setReceivedMoney(0.00);
     setChange(0.00);
+    setIsDocumentfinishDisabled(true);
   };
   const removeSelectedProduct = () => {
     if (IsSelected) {

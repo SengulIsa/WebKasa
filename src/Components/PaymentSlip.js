@@ -40,7 +40,7 @@ const PaymentSlip = () => {
           </Container>
           <Container>
             <Typography>SAAT:{formattedTime}</Typography>
-            <Typography>SATIŞ:{formattedPaymentType}</Typography>
+            <Typography sx={{fontSize:'15px'}}>SATIŞ:{formattedPaymentType}</Typography>
           </Container>
         </Container>
         <hr style={{border: 'none',height: '1px',backgroundColor: 'black'}}/>
