@@ -5,10 +5,11 @@ import { useUser } from '../Context/UsersContext';
 import Logo from '../Images/32-bit.png';
 import '../Styles/HomePage.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const HomeTop = () => {
   const { usercode, fetchCaseInfo, caseIp, caseNumber, version, username, setUsername } = useUser();
-
+  const navigate =useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,7 +36,7 @@ const HomeTop = () => {
   }, [setUsername]);
 
   const handleClick = () => {
-    console.log('clicked');
+    navigate('/Ayarlar');
   };
 
   return (
