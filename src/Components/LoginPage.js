@@ -11,7 +11,7 @@ import axios from 'axios';
 import VirtualKeyboard from './VirtualKeybord'; // Sanal klavye bileşenini ekleyin
 
 const LoginPage = () => {
-  const { usercode, setUsercode, version, setVersion, fetchCaseInfo,showKeyboard, setShowKeyboard,activeInput, setActiveInput } = useUser();
+  const { usercode, setUsercode, version,fetchCaseInfo,showKeyboard, setShowKeyboard,activeInput, setActiveInput } = useUser();
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const [valid, setValid] = useState(true);
