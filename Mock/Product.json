@@ -1,0 +1,354 @@
+{
+    "home&clean":[
+        {
+            "name": "Persil Power Jel Sıvı Deterjan Gül 1690 Ml",
+            "price":152.90,
+            "code": 1234
+        },
+        {
+            "name": "Fairy Platinum  Bulaşık Makinesi Kapsülü",
+            "price":498.75,
+            "code":5678
+            
+        },
+        {
+            "name": "Sleepy Yüzey Temizlik Havlusu 100'lü",
+            "price":77.00,
+            "code":9101
+        },
+        {
+            "name": "Peros Renkli Toz deterjan 7 Kg",
+            "price":283.5,
+            "code":1213
+        },
+        {
+            "name": "Domestos Bio Active Çamaşır Suyu 750 Ml",
+            "price":27.0,
+            "code":1415
+        },
+        {
+            "name": "Omo Toz Deterjan Beyaz 6 Kg",
+            "price":369.50,
+            "code":1617
+        },
+        {
+            "name": "Mistral Tuvalet Kağıdı 2 Katlı 16'lı",
+            "price":99.5,
+            "code":1819
+        },
+        {
+            "name": "Yumoş Sıvı Deterjan Renkliler 2520 Ml",
+            "price":190.0,
+            "code":2021
+        },
+        {
+            "name": "Tursil Sıvı Deterjan 2145 Ml",
+            "price":139.75,
+            "code":2223
+        },
+        {
+            "name": "Çiçeğim Çamaşır Sodası 500 Gram",
+            "price":38.95,
+            "code":2425
+        }        
+
+    ],
+    "Market":[
+         {
+            "name": "Sarıkız Maden Suyu Sade 6*250 Ml",
+            "price":21.59 ,
+            "code":2627
+         },
+         {
+            "name": "Nescafe Extra 3'ü 1 Arada 10'lu",
+            "price":34.5 ,
+            "code":2829,
+            "image":"Images/Nescafe.jpeg"
+        },
+        {
+            "name": "Cappy Şekersiz Limonata 1 L",
+            "price":19.0,
+            "code":3031
+        },
+        {
+            "name": "Erikli Su 6*1,5 L",
+            "price":59.00 ,
+            "code":3233
+        },
+        {
+            "name": "Dooy Osmanlı Şerbeti 1 L",
+            "price":17.00,
+            "code":3435
+        },
+        {
+            "name": "Doğuş Buzlu Çay Şeftali 2,5 L",
+            "price":27.5,
+            "code":3637
+        },
+        {
+            "name": "İçim Ayran 2 L",
+            "price":49.0,
+            "code":3839
+        },
+        {
+            "name": "Spoon Yağlı Pişirme Kağıdı 8 M",
+            "price":33.0,
+            "code":4041
+        },
+        {
+            "name": "Sera Orta Boy Çöp Torbası 15'li",
+            "price":14.9,
+            "code":4243
+        }
+    ],
+    "Kitchen":[
+        {
+            "name": "Cam Pasta Tabağı 17 Cm",
+            "price":14.95,
+            "code": 4445
+        },
+        {
+            "name": "Kase Seti 3'lü",
+            "price":49.90,
+            "code":4647
+        },
+        {
+            "name": "Sarina Cam Sızdırmaz Cam Yağlık 550 Cc Siyah",
+            "price":24.90,
+            "code":4849
+        },
+        {
+            "name": "WMF Düdüklü Tencere 6,5 L",
+            "price":5699.00,
+            "code":5051
+        },
+        {
+            "name": "Mug Termos Ml Antrasit",
+            "price":249.0,
+            "code":5253
+        },
+        {
+            "name": "Borosilikat Kupa Renkli Kulplu 350 ml",
+            "price":49.90,
+            "code":5455
+        },
+        {
+            "name": "Nehir Lazer Titanium Servis Takımı 5 Parça",
+            "price":689.00,
+            "code":5657
+        },
+        {
+            "name": "Emaye Fırın Tepsisi Kare 28 Cm",
+            "price":149.0,
+            "code":5859
+        },
+        {
+            "name": "Lav Reçellik 6'lı 68 Cc",
+            "price": "68.90 ₺",
+            "code":6061
+        },
+        {
+            "name": "Korkmaz Mega Çaydanlık Takımı",
+            "price":1299.00,
+            "code":6263
+        }
+    ],
+    "clothing&accessory":[
+        {
+            "name": "PP114X 3'lü Valiz Seti Koyu Gri",
+            "price":2199.0,
+            "code":6465
+        },
+        {
+            "name": "Hummel Erkek Sweatshirt Lacivert",
+            "price":329.0,
+            "code":6667
+        },
+        {
+            "name": "Kapüşonlu SoftShell Erkek Mont siyah",
+            "price":399.00,
+            "code":6869
+        },
+        {
+            "name": "Kadın Omuz Askılı Çanta Siyah",
+            "price":29.95,
+            "code":7071
+        },
+        {
+            "name": "Adidas Erkek Şort Gri",
+            "price":619.00,
+            "code":7273
+        },
+        {
+            "name": "Calvin Klein Kadın Tayt Siyah",
+            "price":429.00,
+            "code":7475
+        },
+        {
+            "name": "Peregri Erkek Sporcu Tişört Siyah",
+            "price":101.80,
+            "code":7677
+        },
+        {
+            "name": "Silk&Blue Unisex Çocuk Soket Çorap Gri",
+            "price":39.90,
+            "code":7879
+        }
+    ],
+    "home&life":[
+        {
+            "name": "Katlanabilir Kamp Sandalyesi Yeşil",
+            "price":199.0,
+            "code":8081
+        },
+        {
+            "name": "Kadife Kaymaz Taban Saçaklı Yolluk Antrasit 80*150",
+            "price":199.0,
+            "code":8283
+        },
+        {
+            "name": "Ekstrafor Büzgülü Tül Perde 140*250 Cm",
+            "price":139.00,
+            "code":8485
+        },
+        {
+            "name": "Exant Fishing Olta Sehpası",
+            "price":219.0,
+            "code":8687
+        }
+    ],
+    "book&stationary":[
+        {
+            "name": "Beestar Şeffaf Rulo Kaplık",
+            "price":2.90,
+            "code":8889
+        },
+        {
+            "name": "Rotring Roller Kalem 0.7 mm",
+            "price":22.90,
+            "code":9091
+        },
+        {
+            "name": "Fatih Çantalı Boyama Seti",
+            "price":229.90,
+            "code":9293
+        },
+        {
+            "name": "Bic Silinebilir Pastel Boya 12'li",
+            "price":44.95,
+            "code":9495
+        },
+        {
+            "name": "Smartkids Fosforlu Kalem 4'lü",
+            "price":24.90,
+            "code":9697
+        },
+        {
+            "name": "Tyt 3'lü Deneme Seti",
+            "price":39.95,
+            "code":9899
+        },
+        {
+            "name": "Şekilli Renkli Pop It Kalemlik Pembe Mavi",
+            "price":42.90,
+            "code":1001
+        },
+        {
+            "name": "Faber Castel Silgi Mavi",
+            "price":15.0,
+            "code":1002
+        },
+        {
+            "name": "Barbie Lisanslı Defterli Kırtasiye Seti ",
+            "price":49.90,
+            "code":1003
+        },
+        {
+            "name": "Frozen Due Fearless İlkokul Sırt Çantası",
+            "price":599.00,
+            "code":1004
+        }
+    ],
+    "withoutBarcode":[
+        {
+            "name": "Organik Yerli Patates",
+            "price":30.50,
+            "code":2915
+        },
+        {
+            "name": "Yerli Domates",
+            "price":26.90,
+            "code":3421
+        },
+        {
+            "name": "Süper Havuç",
+            "price":47.90,
+            "code":2789
+        },
+        {
+            "name": "Çarliston Biber",
+            "price":22.45,
+            "code":7284
+        },
+        {
+            "name": "Turşuluk Salatalık",
+            "price":47.99,
+            "code":2899
+        },
+        {
+            "name": "Kırmızı Bal Elma",
+            "price":45.00,
+            "code":4210
+        },
+        {
+            "name": "Adana Portakal",
+            "price":42.50,
+            "code":8898
+        },
+        {
+            "name": "Demet Yeşil Soğan",
+            "price":17.0,
+            "code":1022
+        },
+        {
+            "name": "Demet Maydonoz",
+            "price":29.99,
+            "code":1274
+        },
+        {
+            "name": "Kıvırcık Marul",
+            "price":13.99,
+            "code":6698
+        },
+        {
+            "name": "Şeftali",
+            "price":38.90,
+            "code":7012
+        },
+        {
+            "name": "Can Erik",
+            "price":170.90,
+            "code":2024
+        },
+        {
+            "name": "Casio Kadın Kol Saati Gri",
+            "price":799.0,
+            "code":3690
+        },
+        {
+            "name": "Crocs Classic Kadın Terlik Çok Renkli",
+            "price":1299.0,
+            "code": 5678
+        },
+        {
+            "name": "Belderia Pexma 26 Jant Bisiklet",
+            "price":2999,
+            "code":9012
+        },
+        {
+            "name": "Tiamob 2 Kapak 8 Raf Çok amaçlı Dolap",
+            "price":1249.0,
+            "code":1453
+        }
+    ]
+}

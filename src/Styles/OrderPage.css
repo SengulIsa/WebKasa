@@ -1,0 +1,33 @@
+.orderComponent{
+    flex: 1;
+    max-width: calc(100% / 3);
+    border: 1px solid gray;
+    background-color: rgb(218, 236, 237);
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: none;
+    padding: 0px;
+    height: 600px;
+}
+.productcard{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+.MuiButton-root:hover {
+    background-color: inherit !important;
+    color: inherit !important;
+  }
+  
+  .productListContainer {
+    max-height: calc(100vh - 250px); /* Örnek bir değer, footer'ın yüksekliği ve diğer bileşenlerin toplam yüksekliği hesaba katılmalı */
+    overflow-y: auto;
+  }
+  .orderedproductlist{
+    max-height: calc(100vh - 170px); /* Örnek bir değer, footer'ın yüksekliği ve diğer bileşenlerin toplam yüksekliği hesaba katılmalı */
+    overflow-y: auto;
+  }

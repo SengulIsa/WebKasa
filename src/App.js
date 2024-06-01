@@ -2,7 +2,11 @@ import './App.css';
 import {Routes,Route} from 'react-router-dom';
 import LoginPage from './Components/LoginPage';
 import HomePage from './Components/HomePage';
-//import NewUSer from './Components/NewUser';
+import OrderPage from './Components/OrderPage';
+import PaymentPage from './Components/PaymentPage';
+import FilterProducts from './Components/FilterProducts';
+import Settings from './Components/Settings';
+
 
 
 function App() {
@@ -11,7 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage/>}/>
         <Route path="/Home" element={<HomePage/>}/>
-        {/* <Route path="/NewUSer" element={<NewUSer/>}/> */}
+        <Route path="/Satış" element={<OrderPage/>}/>
+        <Route path="/AraToplam" element={<PaymentPage/>}/>
+        <Route path="/Ürünler" element={<FilterProducts/>}/>
+        <Route path="/Ayarlar" element={<Settings/>}/>
       </Routes>
     </div>
   );

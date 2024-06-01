@@ -1,0 +1,56 @@
+.virtual-keyboard {
+  position: fixed;
+  bottom: 3%;
+  margin-left: 110px;
+  width: 90%;
+  background-color: #f1f1f1;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid gray;
+  border-radius: 20px;
+  
+}
+.product-virtual-keyboard{
+  position: fixed;
+  bottom: 50%;
+  margin-left: 20px;
+  width: 30%;
+  background-color:red;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid gray;
+  border-radius: 20px;
+}
+
+ .virtual-keyboard button {
+  background-color: rgb(218, 236, 237);
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 80px;
+  height: 40px;
+} 
+.product-virtual-keyboard button {
+  background-color: lightcoral;
+  color: darkblue;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 80px;
+  height: 40px;
+} 
+
+.virtual-keyboard button:active {
+  background-color: #ddd;
+}
