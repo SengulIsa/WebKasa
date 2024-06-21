@@ -1,7 +1,6 @@
 .settings{
-    background-color: rgb(218, 236, 237);
-    height: 93.8vh;
-    width:208.2vh;
+    height: 93vh;
+    width:208vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,10 +8,8 @@
 }
 .settings-up{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    color:darkblue;
-    background-color: rgb(218, 236, 237);
 }
 .back-icon{
     margin-left: 20px;

@@ -73,10 +73,14 @@ import terlik from '../Images/Products/WithoutBarcode/Terlik.jpeg';
 import turşuluksalatalık from '../Images/Products/WithoutBarcode/TurşulukSalatalık.jpeg';
 import yeşilsoğan from '../Images/Products/WithoutBarcode/YeşilSoğan.jpeg';
 import '../Styles/OrderPage.css';
+import { useTranslation } from "react-i18next";
+
 
 
 function ProductCard({ name, price ,code,image}) {
   var {setProductCode}= useProductCode();
+  const {t}= useTranslation();
+  
   return (
     <Grid  item xs={12} md={6} lg={4}>
          <Card onClick={()=>{setProductCode(code)}} sx={{  maxWidth: 345,border:'1px solid gray',borderRadius:'20px',height:'140px',marginTop:'10px'}}>
@@ -92,10 +96,10 @@ function ProductCard({ name, price ,code,image}) {
             {name}
           </Typography>
           <Typography sx={{ fontSize: '11px',fontFamily:'fantasy' }} >
-            Fiyat: {price}
+            {t('Order.price')}: {price} {t('Order.lira')}
           </Typography>
           <Typography  sx={{ fontSize: '11px',fontFamily:'fantasy' }} >
-            Kod: {code}
+            {t('Order.code')}: {code}
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -24,7 +24,7 @@
       },
       {
         "id": 4,
-        "name": "ÖMER FARUK ŞENGÜL",
+        "name": "ÖMER ŞENGÜL",
         "userCode": "ÖMERFRK",
         "password": "494949"
         
@@ -35,7 +35,22 @@
         "userCode": "MERVEÇLK",
         "password": "258369"
         
+      },
+      {
+        "id": 6,
+        "name": "JOHANSON JUNIOR",
+        "userCode": "JHNSNJR",
+        "password": "145334"
+        
+      },
+      {
+        "id": 7,
+        "name": "GERARD ALONSO",
+        "userCode": "GRDALNS",
+        "password": "115599"
+        
       }
+
     ]
     
   }

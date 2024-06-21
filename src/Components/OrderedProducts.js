@@ -2,10 +2,11 @@
 import React, {useEffect,useState } from 'react';
 import { useProductCode } from '../Context/ProductContext';
 import { Container, Grid, Typography } from '@mui/material';
+import {useTranslation} from 'react-i18next'
 
 const OrderedProducts = ({ names, prices }) => {
   const { Amounts,setTotalValue,selectedProductIndex,setSelectedProductIndex,setIsSelected } = useProductCode();
-  
+  const {t}=useTranslation();
   
 
   useEffect(() => {
@@ -42,8 +43,8 @@ const OrderedProducts = ({ names, prices }) => {
               <Typography>{names[index]}</Typography>
             </Typography>
             <Typography>
-              <Typography>{Amounts[index]} ADET</Typography>
-              <Typography>{(price * Amounts[index]).toFixed(2)} TL</Typography>
+              <Typography>{Amounts[index]} {t('Order.piece')}</Typography>
+              <Typography>{(price * Amounts[index]).toFixed(2)} {t('Order.lira')}</Typography>
             </Typography>
           </Container>
         </Grid>

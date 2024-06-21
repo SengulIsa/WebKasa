@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import { useUser } from '../Context/UsersContext';
 import Container from '@mui/material/Container';
 import Logo from '../Images/32-bit.png';
@@ -9,17 +9,25 @@ import LockIcon from '@mui/icons-material/Lock';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import VirtualKeyboard from './VirtualKeybord'; // Sanal klavye bileşenini ekleyin
+import { useTranslation } from "react-i18next";
+
+
 
 const LoginPage = () => {
-  const { usercode, setUsercode, version,fetchCaseInfo,showKeyboard, setShowKeyboard,activeInput, setActiveInput } = useUser();
+  const { usercode, setUsercode, version,fetchCaseInfo,showKeyboard, setShowKeyboard,activeInput, setActiveInput,theme } = useUser();
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const [valid, setValid] = useState(true);
-  const [showContainer, setShowContainer] = useState(true); 
+  const [showContainer, setShowContainer] = useState(true);
+  const {t}= useTranslation();
 
+ 
+
+  
   const navigate = useNavigate();
   const response = axios.get('http://localhost:3001/users');
 
+ 
   const HandleSubmit = async (e) => {
     e.preventDefault();
     let isValid = true;
@@ -31,7 +39,7 @@ const LoginPage = () => {
           else {
             isValid = false;
             setShowContainer(true);
-            setErrMsg("Kullanıcı kodu veya şifre yanlış!");
+            setErrMsg(t('login.wrongenter'));
             setTimeout(function () {
               setShowContainer(false);
               setErrMsg('');
@@ -46,17 +54,17 @@ const LoginPage = () => {
   fetchCaseInfo();
 
   const handleKeyPress = (key) => {
-    if (key === 'Sil') {
+    if (key === 'Sil' || key==='Del') {
       // Geri tuşuna basıldıysa
       if (activeInput === 'usercode') {
         setUsercode(usercode.slice(0, -1));
       } else if (activeInput === 'password') {
         setPassword(password.slice(0, -1));
       }
-    } else if (key === 'Giriş') {
+    } else if (key === 'Giriş' || key==='Enter') {
       setShowKeyboard(false); // Giriş tuşuna basıldığında klavyeyi kapat
     }
-    else if(key ==='Vazgeç'){
+    else if(key ==='Vazgeç'|| key==='Cancel'){
       setShowKeyboard(false);
     }
     else {
@@ -71,17 +79,17 @@ const LoginPage = () => {
   return (
     <>
       <div>
-        <Container sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '40%', height: '100vh', backgroundColor: 'rgb(218, 236, 237)', float: 'left', textAlign: 'center', borderStyle: 'none' }}>
+        <Container sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '40%', height: '100vh', backgroundColor: theme === 'dark' ? 'black' : 'rgb(218, 236, 237)', float: 'left', textAlign: 'center', borderStyle: 'none' }}>
           <div className='logoDiv'>
             <img src={Logo} alt='#' className='logoImage' />
             <Typography>{version}</Typography>
           </div>
         </Container>
-        <Container sx={{ width: '60%', height: '100vh', backgroundColor: 'rgb(218, 236, 237)', float: 'left', borderStyle: 'none' }}>
+        <Container sx={{ width: '60%', height: '100vh', backgroundColor:theme === 'dark' ? 'black' : 'rgb(218, 236, 237)', float: 'left', borderStyle: 'none' }}>
           <form onSubmit={HandleSubmit}>
             <Container>
-              <Typography variant='h5' sx={{ color: 'midnightblue' }}>Hoşgeldiniz!</Typography>
-              <Typography variant='h6' sx={{ marginTop: '20px', color: 'midnightblue' }}>Lütfen kullanıcı kodu ve şifrenizi giriniz.</Typography>
+              <Typography variant='h5' sx={{ color: theme=== 'dark' ? 'white ': 'midnightblue' }}>{t('login.welcome')}</Typography>
+              <Typography variant='h6' sx={{ marginTop: '20px', color: theme=== 'dark' ? 'white ': 'midnightblue' }}>{t('login.enterUsercodeAndPassword')}</Typography>
             </Container>
 
             {valid ? (<></>) : (
@@ -100,7 +108,7 @@ const LoginPage = () => {
             )}
             <Input
               disableUnderline
-              placeholder='Kullanıcı Kodu'
+              placeholder={t('login.usrcode')}
               autoComplete='off'
               onFocus={() => { setActiveInput('usercode'); setShowKeyboard(true); }}
               onChange={(e) => setUsercode(e.target.value)}
@@ -125,7 +133,7 @@ const LoginPage = () => {
             />
             <Input
               disableUnderline
-              placeholder='Şifre'
+              placeholder={t('login.password')}
               type='password'
               onFocus={() => { setActiveInput('password'); setShowKeyboard(true); }}
               onChange={(e) => setPassword(e.target.value)}
@@ -148,7 +156,7 @@ const LoginPage = () => {
                 paddingLeft: '35px'
               }}
             />
-            <button className='logInButton'>Giriş</button>
+            <button className='logInButton'>{t('login.login')}</button>
           </form>
         </Container>
       </div>

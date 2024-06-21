@@ -4,7 +4,6 @@
     
 }
 .homeTop{
-    background-color: rgb(218, 236, 237);
     display: flex;
     flex-direction: row;
     justify-content:space-between;
@@ -12,10 +11,8 @@
     width: 100%;
 }
 .menuPage{
-    background-color: rgb(218, 236, 237);
     height:400px;  
 }
 .homeBottom{
-    background-color: rgb(218, 236, 237);
     height:115px;
 }

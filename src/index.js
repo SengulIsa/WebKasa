@@ -7,11 +7,11 @@ import {BrowserRouter} from 'react-router-dom';
 import { UserProvider } from './Context/UsersContext';
 import { ProductProvider } from './Context/ProductContext';
 import { PaymentProvider } from './Context/PaymentContext';
-
+import './i18n'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-     <PaymentProvider>
+           <PaymentProvider>
          <ProductProvider>
           <UserProvider>
              <BrowserRouter>
@@ -19,7 +19,8 @@ root.render(
              </BrowserRouter>
           </UserProvider>
        </ProductProvider>
-     </PaymentProvider>         
+     </PaymentProvider> 
+            
 );
 
 // If you want to start measuring performance in your app, pass a function
