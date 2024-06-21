@@ -1,0 +1,17 @@
+.settings{
+    height: 93vh;
+    width:208vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.settings-up{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.back-icon{
+    margin-left: 20px;
+    order:1;
+}

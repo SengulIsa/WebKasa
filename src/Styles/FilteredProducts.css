@@ -1,0 +1,14 @@
+.filterProductsUp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .filterProductsUp .MuiTypography-root {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  

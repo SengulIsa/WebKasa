@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Styles/VirtualKeybord.css'; // Klavye stillerini buraya ekleyebilirsiniz
-import { Button } from '@mui/material';
+import { Button, Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 const keyboardLayouts = {
@@ -22,7 +22,7 @@ const keyboardLayouts = {
   },
 };
 
-const VirtualKeyboard = ({ onKeyPress }) => {
+const MailVirtualKeybord = ({ onKeyPress }) => {
   const { i18n } = useTranslation();
   const language = i18n.language === 'tr' ? 'tr' : 'en';
 
@@ -34,7 +34,7 @@ const VirtualKeyboard = ({ onKeyPress }) => {
   const { keys0, keys1, keys2, keys3, keys4, keys5 } = keyboardLayouts[language];
 
   return (
-    <div className="virtual-keyboard">
+    <Box className="virtual-keyboard" sx={{width:'1200px'}}>
       <div>
         {keys0.map((key) => (
           <Button key={key} onClick={() => onKeyPress(key)}>
@@ -83,8 +83,8 @@ const VirtualKeyboard = ({ onKeyPress }) => {
           )
         )}
       </div>
-    </div>
+    </Box>
   );
 };
 
-export default VirtualKeyboard;
+export default MailVirtualKeybord;

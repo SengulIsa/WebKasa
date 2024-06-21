@@ -11,6 +11,8 @@ export const UserProvider = ({ children }) => {
   const [username, setUsername] = useState('');
   const [showKeyboard, setShowKeyboard] = useState(false);
   const [activeInput, setActiveInput] = useState(null);
+  const [theme, setTheme] = useState('light');
+  const [isMarketOnline, setIsMarketOnline] = useState(true);
 
   const fetchCaseInfo = async ()=>{
     await axios.get('http://localhost:3002/caseInfo')
@@ -34,7 +36,9 @@ export const UserProvider = ({ children }) => {
     fetchCaseInfo,
     username, setUsername,
     showKeyboard, setShowKeyboard,
-    activeInput, setActiveInput
+    activeInput, setActiveInput,
+    theme, setTheme,
+    isMarketOnline, setIsMarketOnline
   };
 
   return (

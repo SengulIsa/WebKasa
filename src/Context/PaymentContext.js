@@ -4,6 +4,7 @@ const PaymentContext = createContext();
 
 export const PaymentProvider = ({ children }) => {
     const [isPaymentSlipOpen, setIsPaymentSlipOpen] = useState(false);
+    const [isDocumentFinishDisabled,setIsDocumentfinishDisabled]=useState(true);
     const [paymentCount, setPaymentCount] = useState(0);
     const [receivedMoney, setReceivedMoney] = useState(0);
     const [change, setChange] = useState(0.00);
@@ -15,6 +16,7 @@ export const PaymentProvider = ({ children }) => {
    receivedMoney, setReceivedMoney,
    change, setChange,
    paymentType,setPaymentType,
+   isDocumentFinishDisabled,setIsDocumentfinishDisabled
   }
   return (
     <PaymentContext.Provider value={contextValue}>

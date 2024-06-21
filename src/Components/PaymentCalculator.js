@@ -6,17 +6,21 @@ import Box from '@mui/material/Box';
 import { useProductCode } from '../Context/ProductContext';
 import { usePaymentInfo } from '../Context/PaymentContext';
 import PaymentSlip from './PaymentSlip';
+import { useUser } from '../Context/UsersContext';
+import {useTranslation} from 'react-i18next'
 
 const PaymentCalculator = () => {
   const [value1, setValue1] = useState('');
   const [IsCardClicked, setIsCardClicked] = useState(false);
   const [totalCashPayment, setTotalCashPayment] = useState(0.00);
   const { totalValue, setIsEmpty,IsEmpty, setProductName, setProductPrice, setAmounts, setTotalValue,ProductName,selectedProductIndex,setSelectedProductIndex,IsSelected,setIsSelected } = useProductCode();
-  const { isPaymentSlipOpen, setIsPaymentSlipOpen, paymentCount, setPaymentCount, setReceivedMoney, change, setChange, setPaymentType,paymentType} = usePaymentInfo();
+  const { isPaymentSlipOpen, setIsPaymentSlipOpen, paymentCount, setPaymentCount, setReceivedMoney, change, setChange, setPaymentType,paymentType,setIsDocumentfinishDisabled} = usePaymentInfo();
+  const {theme}=useUser();
+  const {t}=useTranslation();
 
   const handleCashPayment = () => {
     if(IsEmpty){
-      alert('Sepetinizde Ürün Yok Lütfen Ürün Ekleyin');
+      alert(t('Order.noProductsAlert'));
     }
     else{
       const cashPayment = parseFloat(value1) || 0;
@@ -27,7 +31,7 @@ const PaymentCalculator = () => {
     setChange(calculatedChange);
     setValue1('');
     setReceivedMoney(value1);
-    setPaymentType([...paymentType,'NAKİT']); // Set payment type to 'nakit'
+    setPaymentType([...paymentType,t('Order.cash')]); // Set payment type to 'nakit'
 
     }
     
@@ -35,7 +39,7 @@ const PaymentCalculator = () => {
 
   const handleCardPayment = () => {
     if(IsEmpty){
-      alert('Sepetinizde Ürün Yok Lütfen Ürün Ekleyin');
+      alert(t('Order.noProductsAlert'));
     }
     else{
       const remainingPayment = totalValue - totalCashPayment;
@@ -44,7 +48,7 @@ const PaymentCalculator = () => {
       setIsCardClicked(true);
       setTotalCashPayment(totalValue);
       setReceivedMoney(totalValue);
-      setPaymentType([...paymentType,'KREDİ KARTI']); // Set payment type to 'kredi kartı'
+      setPaymentType([...paymentType,t('Order.debitCard')]); // Set payment type to 'kredi kartı'
     }
    
   };
@@ -58,12 +62,13 @@ const PaymentCalculator = () => {
     setTotalCashPayment(0.00);
     setIsCardClicked(false);
     setPaymentType([]); 
+    setIsDocumentfinishDisabled(true);
   };
 
   const openPaymentSlip = () => {
      setIsPaymentSlipOpen(true);
     setPaymentCount(paymentCount + 1);
-   
+    setIsDocumentfinishDisabled(false);
   };
 
   const DocumentCancel = () => {
@@ -75,6 +80,7 @@ const PaymentCalculator = () => {
     setPaymentType([]); // Clear payment type array
     setReceivedMoney(0.00);
     setChange(0.00);
+    setIsDocumentfinishDisabled(true);
   };
   const removeSelectedProduct = () => {
     if (IsSelected) {
@@ -93,17 +99,18 @@ const PaymentCalculator = () => {
             DocumentCancel();
         }
     } else {
-        alert("Lütfen İptal edilecek satırı seçiniz");
+      alert(t('Order.chooseCancelRowAlert'));
+        
     }
 };
 
   return (
-    <div className='PaymentCmpnts'>
+    <div className='PaymentCmpnts' style={{backgroundColor:theme==='dark'?'black':'rgb(218, 236, 237)'}}>
       <Container sx={{ marginTop: '10px' }}>
         <Button
           onClick={() => DocumentCancel()}
           sx={{ border: '1px solid red', borderRadius: '20px', backgroundColor: 'red', color: 'white', width: '45%', height: '60px', marginRight: '5px', fontFamily: 'inherit', fontSize: '15px' }}>
-          BELGE İPTAL
+          {t('Order.documentCancel')}
         </Button>
         <Button
           disabled={displayRemainingPayment !== 0 || IsEmpty}
@@ -120,13 +127,13 @@ const PaymentCalculator = () => {
             fontSize: '15px'
           }}
         >
-          BELGE BİTİR
+          {t('Order.finishDocument')}
         </Button>
       </Container>
       <Container sx={{ marginTop: '5px' }}>
         <Button onClick={removeSelectedProduct}
           sx={{ border: '1px solid red', borderRadius: '20px', backgroundColor: 'red', color: 'white', width: '45%', height: '60px', marginRight: '5px', fontFamily: 'inherit', fontSize: '15px' }}>
-          SİL
+          {t('Order.delete')}
         </Button>
       </Container>
       <Container sx={{ marginTop: '5px' }}>
@@ -192,7 +199,7 @@ const PaymentCalculator = () => {
         <div>
           <Button
             sx={{ border: '1px solid green', borderRadius: '20px', backgroundColor: 'green', color: 'white', width: '160px', height: '105px', marginLeft: '10px', fontFamily: 'inherit', fontSize: '15px' }}
-            onClick={handleCardPayment}>KREDİ KARTI</Button>
+            onClick={handleCardPayment}>{t('Order.debitCard')}</Button>
         </div>
       </Container>
       <Container sx={{ marginTop: '5px', display: 'flex', flexDirection: 'row' }}>
@@ -225,15 +232,15 @@ const PaymentCalculator = () => {
         <div>
           <Button
             sx={{ border: '1px solid green', borderRadius: '20px', backgroundColor: 'green', color: 'white', width: '160px', height: '105px', marginLeft: '5px', fontFamily: 'inherit', fontSize: '15px' }}
-            onClick={handleCashPayment}>NAKİT</Button>
+            onClick={handleCashPayment}>{t('Order.cash')}</Button>
         </div>
       </Container>
       <Container sx={{ marginTop: '10px' }}>
         <Box component="section" sx={{ p: 2, border: '1px dashed grey', backgroundColor: 'yellow', color: 'black' }}>
-          PARA ÜSTÜ :{change.toFixed(2)} TL
+          {t('Order.change')} :{change.toFixed(2)} {t('Order.lira')}
         </Box>
         <Box component="section" sx={{ p: 2, border: '1px dashed grey', backgroundColor: 'yellow', color: 'black' }}>
-          KALAN ÖDEME :{IsCardClicked ? '0.00' : displayRemainingPayment.toFixed(2)} TL
+          {t('Order.remainingPayment')} :{IsCardClicked ? '0.00' : displayRemainingPayment.toFixed(2)} {t('Order.lira')}
         </Box>
       </Container>
       {isPaymentSlipOpen ? (

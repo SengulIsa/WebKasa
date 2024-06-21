@@ -6,10 +6,14 @@ import Logo from '../Images/32-bit.png';
 import '../Styles/HomePage.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
+
 
 const HomeTop = () => {
-  const { usercode, fetchCaseInfo, caseIp, caseNumber, version, username, setUsername } = useUser();
+  const { usercode, fetchCaseInfo, caseIp, caseNumber, version, username, setUsername,theme } = useUser();
   const navigate =useNavigate();
+  const {t}= useTranslation();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -40,7 +44,7 @@ const HomeTop = () => {
   };
 
   return (
-    <div className='homeTop'>
+    <div className='homeTop' style={{backgroundColor:theme==='dark'?'black':'rgb(218, 236, 237)'}}>
       <Container
         sx={{
           backgroundColor: 'white',
@@ -55,11 +59,11 @@ const HomeTop = () => {
           overflowWrap: 'break-word',
         }}
       >
-        <Typography>Mağaza No:1057(Mobile Demo)</Typography>
-        <Typography>Kasa No:Kasa {caseNumber}</Typography>
-        <Typography>Personel Adı:{username}</Typography>
-        <Typography>Kasa İp No:{caseIp}</Typography>
-        <Typography>Versiyon:{version}</Typography>
+        <Typography>{t('Home.marketNo')}:1057(Mobile Demo)</Typography>
+        <Typography>{t('Home.cashNo')}:Kasa {caseNumber}</Typography>
+        <Typography>{t('Home.personalName')}:{username}</Typography>
+        <Typography>{t('Home.cashipNo')}:{caseIp}</Typography>
+        <Typography>{t('Home.version')}:{version}</Typography>
       </Container>
       <Container
         sx={{

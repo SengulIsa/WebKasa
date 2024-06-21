@@ -7,8 +7,6 @@ import PaymentPage from './Components/PaymentPage';
 import FilterProducts from './Components/FilterProducts';
 import Settings from './Components/Settings';
 
-
-
 function App() {
   return (
     <div className="App">

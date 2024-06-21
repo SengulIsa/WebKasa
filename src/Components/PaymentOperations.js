@@ -3,16 +3,18 @@ import '../Styles/PaymentPage.css';
 import { Button, Container, Typography, Modal } from '@mui/material';
 import CropSquareIcon from '@mui/icons-material/CropSquare';
 import Invoice from './Invoice'; 
-import { useProductCode } from '../Context/ProductContext';
+import { usePaymentInfo } from '../Context/PaymentContext';
+import { useUser } from '../Context/UsersContext';
+import {useTranslation} from 'react-i18next'
 
 const PaymentOperations = () => {
  const [openInvoice, setOpenInvoice] = useState(false);
- const {IsEmpty}=useProductCode();
+ const {isDocumentFinishDisabled}=usePaymentInfo();
+ const {theme}=useUser();
+ const {t}= useTranslation();
 
   const handleOpenInvoice = () => {
-      if(IsEmpty)
-        alert('Sepette ürün olmadığı için fatura gönderimi yapılamaz.Lütfen ürün ekleyin');
-      else
+    
       setOpenInvoice(true);
   };
 
@@ -21,7 +23,7 @@ const PaymentOperations = () => {
   };
 
   return (
-    <div className='PaymentCmpnts'>
+    <div className='PaymentCmpnts' style={{backgroundColor:theme==='dark'?'black':'rgb(218, 236, 237)'}}>
       <Container>
         <Button 
           sx={{
@@ -31,7 +33,7 @@ const PaymentOperations = () => {
             marginBottom:'5px',marginTop:'10px',
             backgroundColor:'blue', color:'white',fontSize:'17px',fontFamily:'fantasy'
           }}>
-            <Typography>HADİ CÜZDAN</Typography>
+            <Typography>{t('Order.letsWallet')}</Typography>
         </Button>
         <Button
           sx={{
@@ -41,7 +43,7 @@ const PaymentOperations = () => {
             marginBottom:'5px',
             backgroundColor:'blue', color:'white',fontSize:'17px',fontFamily:'fantasy'
           }}>
-            <Typography>TOMBANK CÜZDAN</Typography>
+            <Typography>{t('Order.tombankWallet')}</Typography>
         </Button>
         <Button
           onClick={handleOpenInvoice}
@@ -51,8 +53,10 @@ const PaymentOperations = () => {
             width:'100%',height:'60px',
             marginBottom:'5px',
             backgroundColor:'brown', color:'white',fontSize:'17px',fontFamily:'fantasy'
-          }}>
-            <Typography>E-FATURA</Typography>
+          }}
+          disabled={isDocumentFinishDisabled}
+          >
+            <Typography>{t('Order.eInvoice')}</Typography>
         </Button>
         <Button
           sx={{
@@ -62,7 +66,7 @@ const PaymentOperations = () => {
             marginBottom:'5px',
             backgroundColor:'green', color:'white',fontSize:'17px',fontFamily:'fantasy'
           }}>
-            <Typography>HEDİYE ÇEKİ(KIRMIZI KART)</Typography>
+            <Typography>{t('Order.giftCertificate')}</Typography>
         </Button>
       </Container>
       <Container sx={{marginTop:'90px'}}>
@@ -74,7 +78,7 @@ const PaymentOperations = () => {
             color:'blue'
           }}>
           <CropSquareIcon fontSize='small'/> 
-          <Typography>E-ARŞİV FATURA KAREKOD</Typography>
+          <Typography>{t('Order.eArchive')}</Typography>
         </Button>
       </Container>
 
