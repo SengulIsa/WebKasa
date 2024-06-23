@@ -105,16 +105,6 @@ const applyCampaign = async (campaign) => {
 
   setCampaignModalOpen(false);
 };
-const AddCarrierBag=()=>{
-  setTotalValue(totalValue+ 0.25);
-  setCarBagAmount(carBagAmount+1);
-}
-const DeleteCarrierBag=()=>{
-  setTotalValue(totalValue- 0.25);
-  setCarBagAmount(carBagAmount-1);
-}
-
-
 
   return (
     <div className='orderComponent' style={{backgroundColor:theme==='dark'?'black':'rgb(218, 236, 237)'}}>
@@ -174,13 +164,6 @@ const DeleteCarrierBag=()=>{
       <Button onClick={e=> setValue( value + e.target.value) } sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'135px',height:'50px',marginRight:'5px',fontFamily:'inherit',fontSize:'25px',}} value={'0'} >0</Button>
         <Button onClick={e=> setValue( value + e.target.value) } sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'150px',height:'50px',fontFamily:'inherit',fontSize:'25px',marginRight:'5px'}} value={'.'}  >.</Button>
         <Button onClick={handleGirisClick} sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'30%',height:'50px',marginLeft:'5px',fontFamily:'inherit',fontSize:'15px'}} >{t('Order.login')}</Button>
-      </Container>
-      <Container sx={{marginTop:'5px'}}>
-        <Button onClick={AddCarrierBag} sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'30%',height:'50px',marginLeft:'5px',fontFamily:'inherit',fontSize:'15px'}} >{t('Order.addBag')}</Button>
-        <Button onClick={DeleteCarrierBag} sx={{border:'1px solid darkblue', borderRadius:'20px',backgroundColor:'darkblue',color:'white',width:'30%',height:'50px',marginLeft:'5px',fontFamily:'inherit',fontSize:'15px'}} >{t('Order.deleteBag')}</Button>
-        <Box component="section" sx={{ p: 2, border: '1px dashed grey', backgroundColor: 'yellow', color: 'black',marginTop:'5px' }}>
-          {t('Order.bagAmount')}:{carBagAmount}
-        </Box>
       </Container>
       <CampaignModal open={isCampaignModalOpen} handleClose={() => setCampaignModalOpen(false)} applyCampaign={applyCampaign} />
     </div>

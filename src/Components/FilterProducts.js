@@ -105,6 +105,7 @@ const productImages = {
     { name: 'Valiz', src: require('../Images/Products/Clothing&Accessory/ValizSeti.jpeg') },
     { name: 'Peregri', src: require('../Images/Products/Clothing&Accessory/ErkekTişört.jpeg') },
     { name: 'Patates', src: require('../Images/Products/WithoutBarcode/Patates.jpeg') },
+    { name: 'Poşet', src: require('../Images/Products/WithoutBarcode/Poşet.jpg') },
   ],
   'R-U': [
     { name: 'Sleepy', src: require('../Images/Products/Home&Clean/TemizlikHavlusu.jpeg') },
