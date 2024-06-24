@@ -128,7 +128,9 @@
     "Products":{
             "showAllOfThem":"SHOW ALL OF THEM",
             "products":"PRODUCTS",
-        "noProducts":"There is no products which start this letter..."
+        "noProducts":"There is no products which start this letter...",
+        "productSearch":"Search Product..."
+
             
     }
 
