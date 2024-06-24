@@ -205,7 +205,7 @@ const FilterProducts = () => {
           <Typography sx={{ fontSize: '30px',fontStyle:'italic', color: theme === 'dark' ? 'white' : 'darkblue', paddingTop: '10px' }}>{t('Products.products')}</Typography>
           </div>
           <TextField
-            placeholder="Ürün Ara..."
+            placeholder={t('Products.productSearch')}
             onChange={handleSearch}
             value={searchQuery}
             style={{ marginBottom: '20px', marginTop: '5px', width: '100%', backgroundColor: 'white' }}

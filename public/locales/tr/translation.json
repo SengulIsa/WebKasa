@@ -127,7 +127,8 @@
     "Products":{
         "showAllOfThem":"TÜMÜNÜ GÖSTER",
         "products":"ÜRÜNLER",
-        "noProducts":"Bu harflerle başlayan ürün bulunmamaktadır..."
+        "noProducts":"Bu harflerle başlayan ürün bulunmamaktadır...",
+        "productSearch":"Ürün Ara..."
 }
     
 }

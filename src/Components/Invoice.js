@@ -197,14 +197,17 @@ const Invoice = ({ setOpenInvoice }) => {
   };
 
   const handleKeyPress = (key) => {
-    if (key === 'Sil' || key==='Del') {
-      // Geri tuşuna basıldıysa
+    if (key === 'SİL' || key==='DEL' || key === 'sil' || key==='del') {
+      
      setEmail(email.slice(0,-1));
-    } else if (key === 'Giriş' || key==='Enter') {
-      setShowKeyboard(false); // Giriş tuşuna basıldığında klavyeyi kapat
+    } else if (key === 'GİRİŞ' || key==='ENTER'|| key === 'giriş' || key==='enter') {
+      setShowKeyboard(false); 
     }
-    else if(key ==='Vazgeç'|| key==='Cancel'){
+    else if(key ==='VAZGEÇ'|| key==='CANCEL' || key ==='vazgeç'|| key==='cancel'){
       setShowKeyboard(false);
+    }
+    else if(key==='TEMİZLE' || key==='CLEAR' || key==='temizle' || key==='clear'){
+      setEmail('');
     }
     else {
      setEmail(email+ key);
