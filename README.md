@@ -78,8 +78,12 @@ Run the json file of Mock Directory
   ![VirtualKeybordEn](https://github.com/SengulIsa/WebKasa/assets/117285107/46a971a4-6017-4ffc-be2d-518e1d9614e6)
 
 # Contact 
-Github Link Of Project:
+### Github Link Of Project:
 [https://github.com/SengulIsa/WebKasa](https://github.com/SengulIsa/WebKasa)
+### Contact me:
+```sengulisa49@icloud.com```
+### Linkedin Account
+[www.linkedin.com/in/sengulIsa](www.linkedin.com/in/sengulIsa)
 
 
 
