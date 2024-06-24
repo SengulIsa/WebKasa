@@ -83,7 +83,7 @@ Run the json file of Mock Directory
 ### Contact me:
 ```sengulisa49@icloud.com```
 ### Linkedin Account
-[www.linkedin.com/in/sengulIsa](www.linkedin.com/in/sengulIsa)
+```www.linkedin.com/in/sengulIsa```
 
 
 
