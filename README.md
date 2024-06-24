@@ -60,3 +60,4 @@ Run the json file of Mock Directory
   ```npm install @mui/material @mui/icons-material  @mui/private-theming @mui/system axios chart.js i18next i18next-browser-languagedetector i18next-http-backend  react-router-dom react-to-print```
   
   
+  
