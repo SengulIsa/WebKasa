@@ -72,6 +72,7 @@ import şeftali from '../Images/Products/WithoutBarcode/Şeftali.jpeg';
 import terlik from '../Images/Products/WithoutBarcode/Terlik.jpeg';
 import turşuluksalatalık from '../Images/Products/WithoutBarcode/TurşulukSalatalık.jpeg';
 import yeşilsoğan from '../Images/Products/WithoutBarcode/YeşilSoğan.jpeg';
+import poşet from '../Images/Products/WithoutBarcode/Poşet.jpg';
 import '../Styles/OrderPage.css';
 import { useTranslation } from "react-i18next";
 
@@ -128,7 +129,7 @@ switch (ctgry) {
         Images =[kaplık,uçlukalem,boyamaseti,pastelboya,fosforlukalem,denemeseti,kalemlik,silgi,barbiekırtasiyeseti,sırtçantası];
         break;
   case 'withoutBarcode':
-        Images =[patates,domates,havuç,çarlistonbiber,turşuluksalatalık,elma,portakal,yeşilsoğan,maydanoz,kıvırcık,şeftali,canerik,kolsaati,terlik,bisiklet,dolap];
+        Images =[patates,domates,havuç,çarlistonbiber,turşuluksalatalık,elma,portakal,yeşilsoğan,maydanoz,kıvırcık,şeftali,canerik,kolsaati,terlik,bisiklet,dolap,poşet];
         break;
   case 'home&clean':
         Images =[sıvıdeterjan,kapsül,temizlikhavlusu,tozdeterjan,çamaşırsuyu,omo,tuvaletkağıdı,yumoş,tursil,çamaşırsodası];

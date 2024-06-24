@@ -95,7 +95,7 @@
         "chooseRow":"Lütfen İptal edilecek satırı seçiniz",
         "chooseCampaignProduct":"Lütfen kampanyayı uygulamak istediğiniz ürünü seçin.",
         "notCleanProduct":"Seçilen ürün temizlik ürünü değil, bu kampanya uygulanamaz.",
-        "notClothesProduct":"This choosen product not a clothes accessory product.Campaign doesn't apply",
+        "notClothesProduct":"Seçilen ürün giyim aksesuar ürünü değil, bu kampanya uygulanamaz.",
         "printSuccess":"Başarıyla yazdırıldı",
         "send":"GÖNDER",
         "sentSuccess":"mail başarıyla gönderildi",

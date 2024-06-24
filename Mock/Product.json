@@ -349,6 +349,11 @@
             "name": "Tiamob 2 Kapak 8 Raf Çok amaçlı Dolap",
             "price":1249.0,
             "code":1453
+        },
+        {
+            "name": "Poşet",
+            "price":0.25,
+            "code":1111
         }
     ]
 }
