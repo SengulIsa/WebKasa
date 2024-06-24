@@ -15,10 +15,9 @@ import {useTranslation} from 'react-i18next'
 
 const Calculator = () => {
    const [value, setValue] = useState('');
-   const [carBagAmount, setCarBagAmount] = useState(0);
    const [isCampaignModalOpen, setCampaignModalOpen] = useState(false);
   const navigate = useNavigate();
-   const { setAmounts,setIsEmpty,setTotalValue,totalValue,setProductPrice,setProductName,setIsEntryClicked,ProductName,selectedProductIndex,setSelectedProductIndex,IsSelected,setIsSelected} = useProductCode();
+   const { setAmounts,setIsEmpty,setTotalValue,setProductPrice,setProductName,setIsEntryClicked,ProductName,selectedProductIndex,setSelectedProductIndex,IsSelected,setIsSelected} = useProductCode();
   const {theme}=useUser();
   const {t}=useTranslation();
    const handleGirisClick = () => {
