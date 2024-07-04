@@ -28,7 +28,7 @@ The project is a project where the cashiers log in, then go to the sales page an
 ### Installation
 
   <li>
-    Instal the npm package
+    Install the npm package
   
   </li>
   
