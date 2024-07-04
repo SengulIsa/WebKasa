@@ -1,7 +1,7 @@
 <div align="center">
   <h1 style="font-size: 48px;">32bit & Toyota Webcash Project</h1>
 </div>
-webcash register project is an application used by cashiers in markets to sell products.
+Webcash register project is an application used by cashiers in markets to sell products.
 
 # Project Introduction
 The project is a project where the cashiers log in, then go to the sales page and enter the product into the system with the quantity information of the customer who sells the products, then tell the customer the amount to be paid and give change. In addition, an application has been developed where the cashier can view the products, change the language, and change the theme whenever he wants. At the end of the sale, a receipt can be printed and given to the customer or even an invoice can be sent to his e-mail.
@@ -10,13 +10,13 @@ The project is a project where the cashiers log in, then go to the sales page an
 # Build with
 <ul>
   <li><a href="https://reactjs.org">React</a> </li>
-  <li>NodeJs+Node Package Manager(npm) </li>
+  <li>NodeJs + Node Package Manager(npm) </li>
   <li>HTML5 & CSS3</li>
   <li>Material UI(Component Design)</li>
   <li>Axios </li>
   <li>React Router Dom </li>
   <li>Context Api </li>
-  <li>I18-next </li>
+  <li>i18-next </li>
   <li>i18next-http-backend </li>
   <li>i18next-browser-languagedetector </li>
   <li>react-to-print </li>
@@ -56,7 +56,7 @@ Run the json file of Mock Directory
   ```npx json-server --watch CaseInfo.json --port 3002 ``` -for run the CaseInfo.json file
   ```npx json-server --watch Product.json --port 3003 ``` -for run the Product.json file
 
-  ### Installation Of Packages
+  ### Installation of Packages
   ```npm install @mui/material @mui/icons-material  @mui/private-theming @mui/system axios chart.js i18next i18next-browser-languagedetector i18next-http-backend  react-router-dom react-to-print```
 
   # Pages of Project
@@ -70,7 +70,7 @@ Run the json file of Mock Directory
   ![OrderEN](https://github.com/SengulIsa/WebKasa/assets/117285107/e611009c-585f-4cb2-9c86-92d7570829ac)
   ## 5-Payment Page
   ![PaymentEn](https://github.com/SengulIsa/WebKasa/assets/117285107/f606c40c-aed1-4bb5-bb99-abf1e8d8a615)
-  ## 6-Products List Page
+  ## 6-Product List Page
   ![FilteredProductsEN](https://github.com/SengulIsa/WebKasa/assets/117285107/00d5b468-74ca-4361-9698-1156e1c1fd29)
   ## 7-Settings Page
   ![SettingsEn](https://github.com/SengulIsa/WebKasa/assets/117285107/847154f7-4233-4061-a5cb-77157f6d9b44)
@@ -82,7 +82,7 @@ Run the json file of Mock Directory
 [https://github.com/SengulIsa/WebKasa](https://github.com/SengulIsa/WebKasa)
 ### Contact me:
 ```sengulisa49@icloud.com```
-### Linkedin Account
+### LinkedIn Account
 ```www.linkedin.com/in/sengulIsa```
 
 
